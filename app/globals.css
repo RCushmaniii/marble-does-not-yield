@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Fraunces", serif;
+    --font-body: "Source Serif 4", serif;
+    --reading-width: 72ch;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    @apply bg-void text-parchment font-body antialiased;
+    font-size: 18px;
+    line-height: 1.75;
+  }
+
+  @media (min-width: 768px) {
+    body {
+      font-size: 19px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    body {
+      font-size: 20px;
+      line-height: 1.8;
+    }
+  }
+}
+
+/* Custom scrollbar (webkit only) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(232, 230, 225, 0.2);
+  color: #e8e6e1;
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid rgba(232, 230, 225, 0.5);
+  outline-offset: 4px;
+}
+
+/* Story prose styles */
+.story-prose {
+  @apply text-parchment;
+}
+
+.story-prose h1 {
+  @apply font-display font-bold text-4xl md:text-5xl lg:text-6xl mb-12 md:mb-16 leading-tight tracking-tight text-white;
+}
+
+.story-prose h2 {
+  @apply font-display font-semibold text-3xl md:text-4xl mt-section mb-8 leading-snug text-white;
+}
+
+.story-prose h3 {
+  @apply font-display font-semibold text-2xl md:text-3xl mt-16 md:mt-20 mb-6 md:mb-8 leading-snug text-white/95;
+}
+
+.story-prose p {
+  @apply mb-6 md:mb-8 leading-relaxed md:leading-loose;
+}
+
+.story-prose p:empty {
+  @apply h-8 md:h-12 mb-0;
+}
+
+.story-prose strong {
+  @apply font-semibold text-white tracking-wide;
+}
+
+.story-prose em {
+  @apply italic text-ash font-medium;
+}
+
+.story-prose hr {
+  @apply border-0 h-px my-12 md:my-16;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(107, 107, 107, 0.3),
+    transparent
+  );
+}
+
+.story-prose blockquote {
+  @apply border-l-2 border-ash/50 pl-6 italic text-ash my-8;
+}
+
+.story-prose a {
+  @apply text-parchment underline underline-offset-4 decoration-ash/50 hover:decoration-parchment transition-colors;
+}
+
+.story-prose > *:first-child {
+  @apply mt-0;
+}
+
+.story-prose > *:last-child {
+  @apply mb-0;
+}
+
+.story-prose p:last-of-type {
+  margin-bottom: 0.75rem;
+}
