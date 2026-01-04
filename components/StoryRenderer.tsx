@@ -1,6 +1,7 @@
 import { parseStoryWithImages } from "@/lib/md";
 import ScrollFadeImage from "./ScrollFadeImage";
 import FadeInSection from "./FadeInSection";
+import QuietLink from "./QuietLink";
 
 interface StoryRendererProps {
   content: string;
@@ -14,10 +15,16 @@ export default function StoryRenderer({ content }: StoryRendererProps) {
       {parts.map((part, index) => {
         if (part.type === "ending") {
           return (
-            <ScrollFadeImage
-              key={`ending-${index}`}
-              src="/images/ending.jpg"
-            />
+            <div key={`ending-${index}`}>
+              <ScrollFadeImage
+                src="/images/ending.jpg"
+              />
+              <div className="text-center mt-12 mb-24">
+                <QuietLink href="/notes" delay={500}>
+                  Author's note and clinical appendix
+                </QuietLink>
+              </div>
+            </div>
           );
         }
 

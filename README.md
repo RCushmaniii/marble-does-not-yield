@@ -8,6 +8,8 @@ A cinematic, single-page narrative experience built with Next.js 14, TypeScript,
 
 This project explores long-form storytelling on the web, combining restrained animation, careful typography, and accessibility-first design to support serious prose without distraction.
 
+**[View Live Demo →](https://marble-does-not-yield.vercel.app/)**
+
 ---
 
 ## Architecture
