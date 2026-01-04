@@ -14,7 +14,8 @@
     "byline": "Una narrativa de dolor, resistencia y la negativa a ceder"
   },
   "audio": {
-    "listenLabel": "Escucha al autor leer esta historia"
+    "listenLabel": "Escucha al autor leer esta historia",
+    "listenText": "Escuchar"
   },
   "meta": {
     "ogTitle": "El mármol no cede",

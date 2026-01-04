@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 
 interface AudioPlayerProps {
   audioLabel: string;
+  listenText: string;
   audioSrc: string;
 }
 
@@ -11,7 +12,7 @@ interface AudioPlayerProps {
  * Minimal audio link component
  * Clicking toggles play/pause of the MP3
  */
-export default function AudioPlayer({ audioLabel, audioSrc }: AudioPlayerProps) {
+export default function AudioPlayer({ audioLabel, listenText, audioSrc }: AudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -34,7 +35,7 @@ export default function AudioPlayer({ audioLabel, audioSrc }: AudioPlayerProps) 
         className="text-parchment/80 hover:text-white transition-colors text-sm font-body flex items-center gap-2"
         aria-label={audioLabel}
       >
-        🎧 <span>Listen</span>
+        🎧 <span>{listenText}</span>
       </button>
       <audio ref={audioRef} src={audioSrc} />
     </>

@@ -82,6 +82,7 @@ export default async function LangLayout({ children, params }: LayoutProps) {
         <div className="absolute top-4 right-4 md:top-6 md:right-6 z-50 flex items-center gap-4">
           <AudioPlayer
             audioLabel={t.audio.listenLabel}
+            listenText={t.audio.listenText}
             audioSrc="/audio/marble-reading-complete.mp3"
           />
           <LanguageSwitcher currentLang={lang as Locale} />

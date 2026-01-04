@@ -14,7 +14,8 @@
     "byline": "A narrative of pain, endurance, and refusal"
   },
   "audio": {
-    "listenLabel": "Listen to the author read this story"
+    "listenLabel": "Listen to the author read this story",
+    "listenText": "Listen"
   },
   "meta": {
     "ogTitle": "The Marble Does Not Yield",
