@@ -37,7 +37,7 @@ export default function AudioPlayer({ audioLabel, listenText, audioSrc }: AudioP
       >
         🎧 <span>{listenText}</span>
       </button>
-      <audio ref={audioRef} src={audioSrc} />
+      <audio ref={audioRef} src={audioSrc} preload="none" />
     </>
   );
 }
