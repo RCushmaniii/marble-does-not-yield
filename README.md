@@ -32,8 +32,6 @@ This is a production-ready storytelling site built with:
 npm install
 ```
 
-````
-
 ### 2. Verify Images
 
 Ensure the following images are present:
@@ -208,4 +206,7 @@ All rights reserved.
 ---
 
 ```
-````
+
+```
+
+```
