@@ -21,6 +21,7 @@ This is a production-ready storytelling site built with:
 - **Tailwind CSS** for styling
 - **Custom markdown processing** with remark/rehype
 - **Bilingual support** (English/Spanish) with JSON + Markdown i18n
+- **Audio narration** (author-read MP3 served as static asset)
 - **Scroll-triggered animations** via IntersectionObserver
 - **Responsive image handling** (desktop/mobile hero variants)
 - **Accessibility-first** design (semantic HTML, WCAG contrast, reduced motion)
@@ -144,6 +145,59 @@ This architecture ensures:
 - ✅ Easy QA and maintenance
 - ✅ Professional signal to clients
 - ✅ Scalable to additional languages
+
+---
+
+## Audio Narration
+
+Version 2.0.0 introduces **optional audio narration** read by the author, served as a static asset with minimal UX.
+
+### Implementation
+
+**Static Asset Approach:**
+
+```
+public/
+  └── audio/
+      └── marble-reading-complete.mp3
+```
+
+The MP3 is served via Vercel's CDN with zero runtime overhead.
+
+**Minimal Audio Control:**
+
+- 🎧 icon + "Listen" label in header
+- One-click play/pause toggle
+- No visible player UI
+- Bilingual labels (adapts to current language)
+- Positioned alongside language switcher
+
+**Technical Details:**
+
+```typescript
+// AudioPlayer component uses hidden audio element
+const audioRef = useRef<HTMLAudioElement>(null);
+
+const handleToggle = () => {
+  if (audioRef.current) {
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+  }
+};
+```
+
+**Design Philosophy:**
+
+- Audio is **optional**, not intrusive
+- No autoplay (respects user choice)
+- Simple play/pause (no complex controls)
+- Maintains narrative's quiet aesthetic
+- Accessible with proper ARIA labels
+
+This approach treats the audio narration as part of the artwork itself—present when wanted, absent when not.
 
 ---
 
