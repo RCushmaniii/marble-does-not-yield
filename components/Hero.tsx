@@ -126,7 +126,7 @@ export default function Hero() {
         <div className="max-w-4xl text-center space-y-4">
           <h1
             style={titleStyle}
-            className="font-display font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-[1.1] tracking-tight"
+            className="font-display font-bold text-white leading-[1.1] tracking-tight"
           >
             The Marble Does Not Yield
           </h1>
@@ -146,9 +146,11 @@ export default function Hero() {
       </div>
 
       {/* Scroll indicator */}
-      <div 
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
+      <a
+        href="#story"
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 cursor-pointer hover:opacity-100 transition-opacity"
         style={scrollIndicatorStyle}
+        aria-label="Scroll to story"
       >
         <div className="flex flex-col items-center gap-2 animate-bounce">
           <svg
@@ -163,7 +165,7 @@ export default function Hero() {
             <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
           </svg>
         </div>
-      </div>
+      </a>
 
       {/* Bottom fade to content */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-void to-transparent z-10" />

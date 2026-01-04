@@ -10,7 +10,7 @@ export default function StoryRenderer({ content }: StoryRendererProps) {
   const parts = parseStoryWithImages(content);
 
   return (
-    <article className="relative bg-void">
+    <article id="story" className="relative bg-void pt-24">
       {parts.map((part, index) => {
         if (part.type === "ending") {
           return (

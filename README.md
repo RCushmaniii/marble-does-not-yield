@@ -192,21 +192,26 @@ marble-does-not-yield/
 
 ---
 
+## Branding Principles
+
+Typography is intentionally restrained. Contrast is achieved through rhythm, spacing, and hierarchy rather than multiple font families. The system stays neutral so the story can provide the emotion.
+
+**Font Usage:**
+
+- **Fraunces (Display):** Titles, headings, bylines only
+- **Source Serif 4 (Body):** All prose, reading text
+
+**Design Philosophy:**
+
+- Literary, not decorative
+- Reader-focused, not system-focused
+- Restrained, not expressive
+
+For complete design guidelines, see [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md).
+
+---
+
 ## License
 
 This is a custom narrative project.
 All rights reserved.
-
----
-
-**Production-ready. Deploy when ready.**
-
-```
-
----
-
-```
-
-```
-
-```

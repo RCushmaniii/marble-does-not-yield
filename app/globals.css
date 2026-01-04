@@ -33,6 +33,11 @@
     line-height: 1.75;
   }
 
+  /* Hero title fluid scaling */
+  h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+  }
+
   @media (min-width: 768px) {
     body {
       font-size: 19px;
