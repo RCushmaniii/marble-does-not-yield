@@ -1,0 +1,21 @@
+{
+  "site": {
+    "title": "The Marble Does Not Yield",
+    "description": "A story of pain, vulnerability, and the refusal to yield.",
+    "lang": "en"
+  },
+  "nav": {
+    "language": "Language",
+    "english": "English",
+    "spanish": "Español"
+  },
+  "hero": {
+    "title": "The Marble Does Not Yield",
+    "byline": "A narrative of pain, endurance, and refusal"
+  },
+  "meta": {
+    "ogTitle": "The Marble Does Not Yield",
+    "ogDescription": "A story of pain, vulnerability, and the refusal to yield.",
+    "twitterCard": "summary_large_image"
+  }
+}

@@ -1,10 +1,16 @@
+// Client Component because: uses useState, useEffect for animation and reduced-motion detection
 "use client";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "@/lib/motion";
+import type { Locale } from "@/lib/i18n";
 
-export default function Hero() {
+type HeroProps = {
+  lang: Locale;
+};
+
+export default function Hero({ lang }: HeroProps) {
   const [mounted, setMounted] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
 
@@ -128,19 +134,21 @@ export default function Hero() {
             style={titleStyle}
             className="font-display font-bold text-white leading-[1.1] tracking-tight"
           >
-            The Marble Does Not Yield
+            {lang === "en" ? "The Marble Does Not Yield" : "El Mármol No Cede"}
           </h1>
           <p
             style={bylineStyle}
             className="font-display text-base md:text-lg text-parchment/70 tracking-wide"
           >
-            by Robert Cushman
+            {lang === "en" ? "by Robert Cushman" : "por Robert Cushman"}
           </p>
           <p
             style={descriptionStyle}
             className="font-body text-lg md:text-xl text-parchment/90 max-w-2xl mx-auto pt-2"
           >
-            A story of pain, vulnerability, and the refusal to yield.
+            {lang === "en"
+              ? "A story of pain, vulnerability, and the refusal to yield."
+              : "Una historia de dolor, vulnerabilidad y la negativa a ceder."}
           </p>
         </div>
       </div>
@@ -150,7 +158,7 @@ export default function Hero() {
         href="#story"
         className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 cursor-pointer hover:opacity-100 transition-opacity"
         style={scrollIndicatorStyle}
-        aria-label="Scroll to story"
+        aria-label={lang === "en" ? "Scroll to story" : "Desplázate a la historia"}
       >
         <div className="flex flex-col items-center gap-2 animate-bounce">
           <svg

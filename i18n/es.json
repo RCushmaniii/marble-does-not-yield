@@ -1,0 +1,21 @@
+{
+  "site": {
+    "title": "El mármol no cede",
+    "description": "Una historia de dolor, vulnerabilidad y la negativa a ceder.",
+    "lang": "es"
+  },
+  "nav": {
+    "language": "Idioma",
+    "english": "Inglés",
+    "spanish": "Español"
+  },
+  "hero": {
+    "title": "El mármol no cede",
+    "byline": "Una narrativa de dolor, resistencia y negativa a ceder"
+  },
+  "meta": {
+    "ogTitle": "El mármol no cede",
+    "ogDescription": "Una historia de dolor, vulnerabilidad y la negativa a ceder.",
+    "twitterCard": "summary_large_image"
+  }
+}

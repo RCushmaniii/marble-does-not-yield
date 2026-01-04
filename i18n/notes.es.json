@@ -1,0 +1,64 @@
+{
+  "site": {
+    "title": "El mármol no cede",
+    "description": "Una historia de dolor, vulnerabilidad y la negativa a ceder."
+  },
+
+  "nav": {
+    "language": "Idioma",
+    "english": "Inglés",
+    "spanish": "Español"
+  },
+
+  "hero": {
+    "title": "El mármol no cede",
+    "byline": "Una narrativa de dolor, resistencia y la negativa a ceder"
+  },
+
+  "links": {
+    "backToStory": "← Volver a la historia",
+    "authorsNote": "Nota del autor y apéndice clínico"
+  },
+
+  "authorsNote": {
+    "title": "Nota del Autor",
+    "content": "Esta pieza está basada en una lesión real y sus consecuencias. La historia refleja mi experiencia subjetiva de dolor, desorientación y dependencia durante la recuperación. Lo que sigue es una narrativa médica factual, redactada con fines de claridad clínica e incluida aquí para completitud.",
+    "authorName": "Robert Cushman"
+  },
+
+  "clinical": {
+    "title": "Apéndice Clínico",
+    "subtitle": "Narrativa de Lesión del Paciente – Lesión de Rodilla Tras Síncope en Ducha",
+
+    "patientInfo": {
+      "title": "Información del Paciente",
+      "patient": "Paciente",
+      "dateOfInjury": "Fecha de la lesión",
+      "relevantHistory": "Historial relevante",
+      "historyText": "Artritis psoriásica; dolor articular crónico; lesión de espalda reciente (en mejoría antes de este evento)"
+    },
+
+    "sections": {
+      "precipitating": {
+        "title": "1. Factores Precipitantes (Contexto)",
+        "items": [
+          "Viaje de Guadalajara a Puebla",
+          "Privación significativa del sueño (despierto la mayor parte del sábado, vuelo temprano el domingo)",
+          "Día completo de actividad al llegar",
+          "Fatiga física y dolor articular basal relacionados con artritis psoriásica"
+        ]
+      }
+    },
+
+    "summary": {
+      "title": "Resumen Clínico en Una Oración",
+      "text": "Después de una privación significativa del sueño y un baño caliente prolongado, el paciente presentó un episodio sincopal en una ducha de mármol y despertó con ambas rodillas forzadamente abducidas e inmovilizadas, seguido de dolor bilateral severo de rodilla que persistió durante siete días, con dificultad para la carga de peso, elevación de las piernas y entrada a un vehículo."
+    }
+  },
+
+  "meta": {
+    "ogTitle": "El mármol no cede",
+    "ogDescription": "Una historia de dolor, vulnerabilidad y la negativa a ceder.",
+    "twitterCard": "summary_large_image"
+  }
+}

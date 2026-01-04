@@ -1,0 +1,64 @@
+{
+  "site": {
+    "title": "The Marble Does Not Yield",
+    "description": "A story of pain, vulnerability, and the refusal to yield."
+  },
+
+  "nav": {
+    "language": "Language",
+    "english": "English",
+    "spanish": "Español"
+  },
+
+  "hero": {
+    "title": "The Marble Does Not Yield",
+    "byline": "A narrative of pain, endurance, and the refusal to yield"
+  },
+
+  "links": {
+    "backToStory": "← Return to story",
+    "authorsNote": "Author’s note and clinical appendix"
+  },
+
+  "authorsNote": {
+    "title": "Author’s Note",
+    "content": "This piece is drawn from a real injury and its aftermath. The story reflects my subjective experience of pain, disorientation, and dependency during recovery. What follows is a factual medical narrative written for clinical clarity, included here for completeness.",
+    "authorName": "Robert Cushman"
+  },
+
+  "clinical": {
+    "title": "Clinical Appendix",
+    "subtitle": "Patient Injury Narrative – Knee Injury After Syncope in Shower",
+
+    "patientInfo": {
+      "title": "Patient Information",
+      "patient": "Patient",
+      "dateOfInjury": "Date of Injury",
+      "relevantHistory": "Relevant History",
+      "historyText": "Psoriatic arthritis; chronic joint pain; recent back injury (improving prior to this event)"
+    },
+
+    "sections": {
+      "precipitating": {
+        "title": "1. Precipitating Factors (Context)",
+        "items": [
+          "Travel from Guadalajara to Puebla",
+          "Significant sleep deprivation (awake most of Saturday, early flight Sunday)",
+          "Full day of activity on arrival",
+          "Physical fatigue and baseline joint pain related to psoriatic arthritis"
+        ]
+      }
+    },
+
+    "summary": {
+      "title": "One-Sentence Clinical Summary",
+      "text": "After significant sleep deprivation and a prolonged hot bath, the patient experienced a syncopal episode in a marble shower and awoke with both knees forcibly abducted and pinned, followed by severe bilateral knee pain persisting for seven days, with difficulty weight bearing, lifting the legs, and entering a vehicle."
+    }
+  },
+
+  "meta": {
+    "ogTitle": "The Marble Does Not Yield",
+    "ogDescription": "A story of pain, vulnerability, and the refusal to yield.",
+    "twitterCard": "summary_large_image"
+  }
+}

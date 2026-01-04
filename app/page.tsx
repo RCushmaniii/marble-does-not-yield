@@ -1,14 +1,9 @@
-import Hero from "@/components/Hero";
-import StoryRenderer from "@/components/StoryRenderer";
-import { getStoryContent } from "@/lib/md";
+import { redirect } from "next/navigation";
+import { DEFAULT_LOCALE } from "@/lib/i18n";
 
-export default async function Page() {
-  const story = await getStoryContent();
-
-  return (
-    <main className="relative">
-      <Hero />
-      <StoryRenderer content={story} />
-    </main>
-  );
+/**
+ * Root page redirects to default language
+ */
+export default function RootPage() {
+  redirect(`/${DEFAULT_LOCALE}`);
 }

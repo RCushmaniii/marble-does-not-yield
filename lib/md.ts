@@ -3,12 +3,13 @@ import path from "path";
 import { remark } from "remark";
 import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
+import type { Locale } from "./i18n";
 
 /**
- * Load and parse the story markdown file
+ * Load and parse the story markdown file for a specific language
  */
-export async function getStoryContent(): Promise<string> {
-  const filePath = path.join(process.cwd(), "content", "story.md");
+export async function getStoryContent(lang: Locale = "en"): Promise<string> {
+  const filePath = path.join(process.cwd(), "content", lang, "story.md");
 
   try {
     const fileContent = await fs.readFile(filePath, "utf8");
@@ -21,8 +22,8 @@ export async function getStoryContent(): Promise<string> {
 
     return processedContent.toString();
   } catch (error) {
-    console.error("Error loading story:", error);
-    throw new Error("Failed to load story content");
+    console.error(`Error loading story for ${lang}:`, error);
+    throw new Error(`Failed to load story content for ${lang}`);
   }
 }
 

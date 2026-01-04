@@ -1,29 +1,43 @@
 import Link from "next/link";
 import Image from "next/image";
+import { isValidLocale, getNotesTranslations, type Locale } from "@/lib/i18n";
+import { notFound } from "next/navigation";
 
-export default function NotesPage() {
+type NotesPageProps = {
+  params: Promise<{ lang: string }>;
+};
+
+export default async function NotesPage({ params }: NotesPageProps) {
+  const { lang } = await params;
+
+  if (!isValidLocale(lang)) {
+    notFound();
+  }
+
+  const t = getNotesTranslations(lang as Locale);
+
   return (
     <main className="relative bg-void min-h-screen">
       <article className="max-w-prose mx-auto px-6 md:px-8 py-24">
         {/* Back link */}
         <Link
-          href="/"
+          href={`/${lang}`}
           className="inline-block mb-12 text-sm text-ash hover:text-parchment transition-colors"
         >
-          ← Return to story
+          {t.links.backToStory}
         </Link>
 
         {/* Author's Note */}
         <section className="mb-16">
           <h2 className="font-display font-semibold text-2xl text-white mb-6">
-            Author's Note
+            {t.authorsNote.title}
           </h2>
           <div className="font-body text-parchment leading-relaxed space-y-4">
             <p>
-              This piece is drawn from a real injury and its aftermath. The story reflects my subjective experience of pain, disorientation, and dependency during recovery. What follows is a factual medical narrative written for clinical clarity, included here for completeness.
+              {t.authorsNote.content}
             </p>
           </div>
-          
+
           {/* Author Image */}
           <div className="mt-8 flex justify-center">
             <div className="w-64 h-64 relative rounded-full overflow-hidden border-2 border-ash/30">
@@ -37,49 +51,48 @@ export default function NotesPage() {
             </div>
           </div>
           <p className="text-center mt-3 text-sm text-ash">
-            Robert Cushman
+            {t.authorsNote.authorName}
           </p>
         </section>
 
         {/* Clinical Appendix */}
         <section>
           <h2 className="font-display font-semibold text-2xl text-white mb-8">
-            Clinical Appendix
+            {t.clinical.title}
           </h2>
 
           <h3 className="font-display font-semibold text-lg text-white/90 mb-6">
-            Patient Injury Narrative – Knee Injury After Syncope in Shower
+            {t.clinical.subtitle}
           </h3>
 
           {/* Patient Information */}
           <div className="mb-8">
             <h4 className="font-display font-medium text-base text-white/80 mb-3">
-              Patient Information
+              {t.clinical.patientInfo.title}
             </h4>
             <ul className="font-body text-parchment/90 text-sm leading-relaxed space-y-1 list-disc list-inside">
-              <li><strong>Patient:</strong> Robert Cushman</li>
-              <li><strong>Date of Injury:</strong> December 28</li>
-              <li><strong>Relevant History:</strong> Psoriatic arthritis; chronic joint pain; recent back injury (improving prior to this event)</li>
+              <li><strong>{t.clinical.patientInfo.patient}:</strong> Robert Cushman</li>
+              <li><strong>{t.clinical.patientInfo.dateOfInjury}:</strong> {lang === "en" ? "December 28" : "28 de diciembre"}</li>
+              <li><strong>{t.clinical.patientInfo.relevantHistory}:</strong> {t.clinical.patientInfo.historyText}</li>
             </ul>
           </div>
 
           {/* Precipitating Factors */}
           <div className="mb-8">
             <h4 className="font-display font-medium text-base text-white/80 mb-3">
-              1. Precipitating Factors (Context)
+              {t.clinical.sections.precipitating.title}
             </h4>
             <ul className="font-body text-parchment/90 text-sm leading-relaxed space-y-1 list-disc list-inside">
-              <li>Traveling from Guadalajara to Puebla</li>
-              <li>Significant sleep deprivation (awake most of Saturday, early flight Sunday)</li>
-              <li>Full day of activity on arrival</li>
-              <li>Physical fatigue and baseline joint pain related to psoriatic arthritis</li>
+              {t.clinical.sections.precipitating.items.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
             </ul>
           </div>
 
-          {/* Bath and Presyncopal Symptoms */}
+          {/* Remaining clinical sections in English (medical documentation) */}
           <div className="mb-8">
             <h4 className="font-display font-medium text-base text-white/80 mb-3">
-              2. Bath and Presyncopal Symptoms
+              2. {lang === "en" ? "Bath and Presyncopal Symptoms" : "Baño y Síntomas Presincopales"}
             </h4>
             <div className="font-body text-parchment/90 text-sm leading-relaxed space-y-3">
               <ul className="space-y-1 list-disc list-inside">
@@ -104,7 +117,7 @@ export default function NotesPage() {
           {/* Syncope and Fall */}
           <div className="mb-8">
             <h4 className="font-display font-medium text-base text-white/80 mb-3">
-              3. Syncope and Fall in Shower (Primary Injury Event)
+              3. {lang === "en" ? "Syncope and Fall in Shower (Primary Injury Event)" : "Síncope y Caída en Ducha (Evento de Lesión Primaria)"}
             </h4>
             <div className="font-body text-parchment/90 text-sm leading-relaxed space-y-3">
               <ul className="space-y-1 list-disc list-inside">
@@ -127,7 +140,7 @@ export default function NotesPage() {
           {/* Immediate Aftermath */}
           <div className="mb-8">
             <h4 className="font-display font-medium text-base text-white/80 mb-3">
-              4. Immediate Aftermath and Functional Limitation
+              4. {lang === "en" ? "Immediate Aftermath and Functional Limitation" : "Consecuencias Inmediatas y Limitación Funcional"}
             </h4>
             <div className="font-body text-parchment/90 text-sm leading-relaxed space-y-3">
               <ul className="space-y-1 list-disc list-inside">
@@ -152,7 +165,7 @@ export default function NotesPage() {
           {/* Symptoms Over Following Days */}
           <div className="mb-8">
             <h4 className="font-display font-medium text-base text-white/80 mb-3">
-              5. Symptoms Over the Following Days
+              5. {lang === "en" ? "Symptoms Over the Following Days" : "Síntomas Durante los Días Siguientes"}
             </h4>
             <div className="font-body text-parchment/90 text-sm leading-relaxed space-y-3">
               <p className="font-medium text-parchment">Days 1–3:</p>
@@ -186,7 +199,7 @@ export default function NotesPage() {
           {/* Current Status */}
           <div className="mb-8">
             <h4 className="font-display font-medium text-base text-white/80 mb-3">
-              6. Current Status (Approximately Day 7 Post-Injury)
+              6. {lang === "en" ? "Current Status (Approximately Day 7 Post-Injury)" : "Estado Actual (Aproximadamente Día 7 Post-Lesión)"}
             </h4>
             <div className="font-body text-parchment/90 text-sm leading-relaxed space-y-3">
               <p>Able to walk independently with:</p>
@@ -214,7 +227,7 @@ export default function NotesPage() {
           {/* Patient Concerns */}
           <div className="mb-8">
             <h4 className="font-display font-medium text-base text-white/80 mb-3">
-              7. Patient Concerns
+              7. {lang === "en" ? "Patient Concerns" : "Preocupaciones del Paciente"}
             </h4>
             <ul className="font-body text-parchment/90 text-sm leading-relaxed space-y-1 list-disc list-inside">
               <li>Concern for internal knee injury (meniscus, cartilage, ligament, or bone contusion)</li>
@@ -232,22 +245,26 @@ export default function NotesPage() {
           {/* Clinical Summary */}
           <div className="mb-8 p-4 border-l-2 border-ash/30">
             <h4 className="font-display font-medium text-base text-white/80 mb-3">
-              One-Sentence Clinical Summary
+              {t.clinical.summary.title}
             </h4>
             <p className="font-body text-parchment/90 text-sm leading-relaxed italic">
-              After sleep deprivation and a prolonged hot bath, the patient experienced syncope in a marble shower and awoke with both knees forcibly abducted and pinned, followed by severe bilateral knee pain persisting seven days with difficulty weight bearing, lifting the legs, and entering a vehicle.
+              {t.clinical.summary.text}
             </p>
           </div>
         </section>
 
         {/* Back link bottom */}
         <Link
-          href="/"
+          href={`/${lang}`}
           className="inline-block mt-16 text-sm text-ash hover:text-parchment transition-colors"
         >
-          ← Return to story
+          {t.links.backToStory}
         </Link>
       </article>
     </main>
   );
+}
+
+export async function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "es" }];
 }

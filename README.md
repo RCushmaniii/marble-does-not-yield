@@ -20,9 +20,130 @@ This is a production-ready storytelling site built with:
 - **TypeScript** throughout
 - **Tailwind CSS** for styling
 - **Custom markdown processing** with remark/rehype
+- **Bilingual support** (English/Spanish) with JSON + Markdown i18n
 - **Scroll-triggered animations** via IntersectionObserver
 - **Responsive image handling** (desktop/mobile hero variants)
 - **Accessibility-first** design (semantic HTML, WCAG contrast, reduced motion)
+
+---
+
+## Internationalization (i18n)
+
+This project implements a **professional-grade bilingual system** supporting English and Spanish with perfect symmetry and clear separation of concerns.
+
+### Architecture
+
+**JSON for UI labels and short text:**
+
+```
+i18n/
+  ├── en.json           # English UI strings
+  ├── es.json           # Spanish UI strings
+  ├── notes.en.json     # English notes page
+  └── notes.es.json     # Spanish notes page
+```
+
+**Markdown for long-form prose:**
+
+```
+content/
+  ├── en/
+  │   └── story.md      # English narrative
+  └── es/
+      └── story.md      # Spanish narrative
+```
+
+### Why This Structure
+
+**Perfect Symmetry:**
+
+- Same keys, same nesting, same intent across languages
+- Makes language switching trivial
+- QA and maintenance are straightforward
+- Adding new languages (e.g., `fr.json`) is painless
+
+**Clear Separation of Concerns:**
+
+- **JSON** → Labels, headings, short UI text
+- **Markdown** → Long-form prose and clinical documents
+- This is exactly how mature multilingual systems are built
+
+**Type Safety:**
+
+```typescript
+export type Locale = "en" | "es";
+export const SUPPORTED_LOCALES: Locale[] = ["en", "es"];
+```
+
+### Adding a New Language
+
+1. Create JSON translation files:
+
+   ```
+   i18n/fr.json
+   i18n/notes.fr.json
+   ```
+
+2. Create Markdown content:
+
+   ```
+   content/fr/story.md
+   ```
+
+3. Update `lib/i18n.ts`:
+
+   ```typescript
+   export type Locale = "en" | "es" | "fr";
+   export const SUPPORTED_LOCALES: Locale[] = ["en", "es", "fr"];
+   ```
+
+4. Add translations to JSON files following existing key structure
+
+### Translation Workflow
+
+**For UI text changes:**
+
+- Update both `en.json` and `es.json` with matching keys
+- Maintain identical structure across all language files
+
+**For narrative changes:**
+
+- Update corresponding `story.md` files in `content/en/` and `content/es/`
+- Markdown files are completely independent
+
+### Implementation Details
+
+**Translation Loading:**
+
+```typescript
+import { getTranslations, getNotesTranslations } from "@/lib/i18n";
+
+const t = getTranslations(locale);
+const notesT = getNotesTranslations(locale);
+```
+
+**Content Loading:**
+
+```typescript
+import { getStoryContent } from "@/lib/md";
+
+const content = await getStoryContent(locale);
+```
+
+**Components receive locale as prop:**
+
+```typescript
+<Hero lang={locale} />
+<StoryRenderer content={content} lang={locale} />
+```
+
+This architecture ensures:
+
+- ✅ Type-safe translations
+- ✅ No runtime translation errors
+- ✅ Easy QA and maintenance
+- ✅ Professional signal to clients
+- ✅ Scalable to additional languages
 
 ---
 
