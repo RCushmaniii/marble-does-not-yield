@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { getTranslations, isValidLocale, type Locale } from "@/lib/i18n";
 import { notFound } from "next/navigation";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import AudioPlayer from "@/components/AudioPlayer";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -73,10 +74,18 @@ export default async function LangLayout({ children, params }: LayoutProps) {
     notFound();
   }
 
+  const t = getTranslations(lang as Locale);
+
   return (
     <>
       <div lang={lang} className="relative">
-        <LanguageSwitcher currentLang={lang as Locale} />
+        <div className="absolute top-4 right-4 md:top-6 md:right-6 z-50 flex items-center gap-4">
+          <AudioPlayer
+            audioLabel={t.audio.listenLabel}
+            audioSrc="/audio/marble-reading-complete.mp3"
+          />
+          <LanguageSwitcher currentLang={lang as Locale} />
+        </div>
         {children}
       </div>
     </>

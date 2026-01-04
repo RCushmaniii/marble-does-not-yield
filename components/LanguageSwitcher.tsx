@@ -13,7 +13,7 @@ export default function LanguageSwitcher({ currentLang }: LanguageSwitcherProps)
   return (
     <nav
       aria-label="Language selection"
-      className="absolute top-4 right-4 md:top-6 md:right-6 z-50 flex items-center gap-2 text-sm font-medium"
+      className="flex items-center gap-2 text-sm font-medium"
     >
       <Link
         href="/en"
