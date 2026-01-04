@@ -40,7 +40,7 @@ Entró.
 
 Sin tropiezo. Sin resbalón. Solo el robo repentino y violento del suelo.
 
-Cuando la conciencia se abrió paso de regreso, llegó con náuseas. Estaba en el suelo, torcido mal, piernas abiertas en una simetría grotesca—rodillas dobladas hacia afuera, inmovilizadas por la geometría. Su cuerpo había sido dispuesto sin su consentimiento.
+Cuando la conciencia se abrió paso de regreso, llegó con náuseas. Estaba en el suelo, mal torcido, piernas abiertas en una simetría grotesca—rodillas dobladas hacia afuera, inmovilizadas por la geometría. Su cuerpo había sido dispuesto sin su consentimiento.
 
 **El mármol no cedió.**
 

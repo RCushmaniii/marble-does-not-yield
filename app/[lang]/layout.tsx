@@ -75,7 +75,7 @@ export default async function LangLayout({ children, params }: LayoutProps) {
 
   return (
     <>
-      <div lang={lang}>
+      <div lang={lang} className="relative">
         <LanguageSwitcher currentLang={lang as Locale} />
         {children}
       </div>
