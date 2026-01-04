@@ -35,7 +35,7 @@ export async function generateMetadata({
       locale: lang === "en" ? "en_US" : "es_ES",
       images: [
         {
-          url: "/images/og-image.jpg",
+          url: "/images/main-og.jpg",
           width: 1200,
           height: 630,
           alt: t.site.title,
@@ -46,7 +46,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: t.meta.ogTitle,
       description: t.meta.ogDescription,
-      images: ["/images/og-image.jpg"],
+      images: ["/images/main-og.jpg"],
     },
     alternates: {
       canonical: `${SITE_URL}/${lang}`,
