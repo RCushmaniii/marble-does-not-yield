@@ -50,8 +50,8 @@ export default function FadeInSection({ children, className = "" }: FadeInSectio
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
+        threshold: 0.05,
+        rootMargin: "0px 0px -125px 0px",
       }
     );
 
@@ -66,7 +66,8 @@ export default function FadeInSection({ children, className = "" }: FadeInSectio
     ? {
         opacity: hasAnimated ? 1 : 0,
         transform: hasAnimated ? "translateY(0)" : "translateY(30px)",
-        transition: "opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)",
+        animation: hasAnimated ? "fadeInTextColor 3.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards" : "none",
+        transition: "opacity 3.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 3.5s cubic-bezier(0.2, 0.8, 0.2, 1)",
       }
     : {};
 

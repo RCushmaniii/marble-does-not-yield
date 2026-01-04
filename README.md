@@ -1,7 +1,7 @@
 # The Marble Does Not Yield
 
 <p align="center">
-  <img src="./public/images/main-header-desktop.jpg" alt="Hero preview" width="700" />
+  <a href="https://marble-does-not-yield.vercel.app/" target="_blank"><img src="./public/images/main-header-desktop.jpg" alt="Hero preview" width="900" /></a>
 </p>
 
 A cinematic, single-page narrative experience built with Next.js 14, TypeScript, and Tailwind CSS.

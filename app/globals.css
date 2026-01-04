@@ -144,3 +144,19 @@
 .story-prose p:last-of-type {
   margin-bottom: 0.75rem;
 }
+
+/* Multi-stage text fade-in animation: black → dark gray → light gray → white */
+@keyframes fadeInTextColor {
+  0% {
+    color: #000000;
+  }
+  33% {
+    color: #404040;
+  }
+  66% {
+    color: #a8a8a8;
+  }
+  100% {
+    color: inherit;
+  }
+}
