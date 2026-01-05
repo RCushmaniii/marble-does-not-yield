@@ -66,7 +66,7 @@ demo_video_url: "" # Required (can be empty string)
 # === LINKS ===
 
 demo_url: "https://marble-does-not-yield.vercel.app/" # Required production demo link
-repo_url: "" # Required (can be empty string)
+repo_url: "https://github.com/RCushmaniii/marble-does-not-yield"
 case_study_url: "" # Required (can be empty string)
 
 # === SALES CONTENT (REQUIRED SECTIONS) ===
