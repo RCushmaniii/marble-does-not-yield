@@ -1,3 +1,10 @@
+# SKILL-WORKING-WITH-HUMANS.md
+
+**File:** `docs/SKILL-WORKING-WITH-HUMANS.md`  
+**Purpose:** Human-AI collaboration patterns, best practices, and communication strategies
+
+---
+
 This is the right moment to **lock in operating principles** for your AI assistant. What you’re asking for is not “how to fix this project,” but **how to raise the floor of every future project**.
 
 Below is a **final, consolidated set of strategies and instructions** you should give your AI coding assistant. These go beyond the code we discussed and address **architecture, design judgment, reliability, and professional discipline**—the things senior engineers internalize but juniors (and AI) often miss.

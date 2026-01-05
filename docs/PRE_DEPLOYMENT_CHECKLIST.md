@@ -1,4 +1,11 @@
-# Pre-Deployment Checklist
+# PRE_DEPLOYMENT_CHECKLIST.md
+
+**File:** `docs/PRE_DEPLOYMENT_CHECKLIST.md`  
+**Purpose:** Pre-deployment verification checklist ensuring production readiness
+
+---
+
+## Pre-Deployment Checklist
 
 **Narrative & Portfolio-Grade Web Projects**
 

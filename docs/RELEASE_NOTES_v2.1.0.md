@@ -1,13 +1,20 @@
-# Release Notes — Version 2.0.0
+# RELEASE_NOTES_v2.1.0.md
+
+**File:** `docs/RELEASE_NOTES_v2.1.0.md`  
+**Purpose:** Release notes for version 2.1.0 - Audio Narration & Documentation Edition
+
+---
+
+## Release Notes — Version 2.1.0
 
 **Release Date:** January 4, 2026  
-**Title:** Audio Narration Edition — Author's Voice Integration
+**Title:** Audio Narration & Documentation Edition
 
 ---
 
 ## 🎧 Major New Feature: Audio Narration
 
-Version 2.0.0 introduces **author-narrated audio** as an optional enhancement to the reading experience. This release represents a significant evolution in how readers can engage with the narrative.
+Version 2.1.0 introduces **author-narrated audio** as an optional enhancement to the reading experience. This release represents a significant evolution in how readers can engage with the narrative.
 
 ### What's New
 

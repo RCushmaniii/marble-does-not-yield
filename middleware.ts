@@ -1,8 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import { SUPPORTED_LOCALES, DEFAULT_LOCALE } from "./lib/i18n";
+import { SUPPORTED_LOCALES } from "./lib/i18n";
+import { detectLocale } from "./lib/detect-locale";
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
+
+  // Allow /docs routes without language redirection
+  if (pathname.startsWith("/docs")) {
+    return NextResponse.next();
+  }
 
   // Check if pathname already has a supported locale
   const pathnameHasLocale = SUPPORTED_LOCALES.some(
@@ -13,21 +19,14 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Redirect root to default locale (handled by app/page.tsx, but this is a fallback)
+  // Redirect root to default locale (handled by app/page.tsx)
   if (pathname === "/") {
     return NextResponse.next();
   }
 
   // Detect preferred language from Accept-Language header
   const acceptLanguage = request.headers.get("accept-language");
-  let preferredLocale = DEFAULT_LOCALE;
-
-  if (acceptLanguage) {
-    // Simple detection: check if "es" appears in accept-language
-    if (acceptLanguage.toLowerCase().includes("es")) {
-      preferredLocale = "es";
-    }
-  }
+  const preferredLocale = detectLocale(acceptLanguage);
 
   // Redirect to localized path
   const newUrl = new URL(`/${preferredLocale}${pathname}`, request.url);

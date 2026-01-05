@@ -30,7 +30,7 @@ export const SUPPORTED_LOCALES: Locale[] = ["en", "es"];
 /**
  * Default locale
  */
-export const DEFAULT_LOCALE: Locale = "en";
+export const DEFAULT_LOCALE: Locale = "es";
 
 /**
  * Check if a locale is supported

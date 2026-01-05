@@ -1,8 +1,7 @@
-# 1️⃣ AI_ENGINEERING_RULES.md
+# AI_ENGINEERING_RULES.md
 
-_(Standing Rules for All AI-Assisted Development)_
-
-You can paste this directly into a repo root or feed it to your AI assistant as a required pre-read.
+**File:** `docs/AI_ENGINEERING_RULES.md`  
+**Purpose:** Standing rules and coding standards for AI-assisted development on this project
 
 ---
 

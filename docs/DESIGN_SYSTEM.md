@@ -1,4 +1,11 @@
-# Design System
+# DESIGN_SYSTEM.md
+
+**File:** `docs/DESIGN_SYSTEM.md`  
+**Purpose:** Typography, color palette, spacing, and design principles for the project
+
+---
+
+## Design System
 
 **The Marble Does Not Yield**
 

@@ -384,11 +384,26 @@ Typography is intentionally restrained. Contrast is achieved through rhythm, spa
 - Reader-focused, not system-focused
 - Restrained, not expressive
 
-For complete design guidelines, see [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md).
+For complete design guidelines, see [DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md).
+
+---
+
+## Documentation
+
+Comprehensive project documentation is organized in the `/docs` directory:
+
+- **[Documentation Index](./docs/INDEX.md)** - Complete navigation hub for all documentation
+- **[Design System](./docs/DESIGN_SYSTEM.md)** - Typography, colors, and design principles
+- **[Lessons Learned](./docs/LESSONS_LEARNED.md)** - Strategic decisions and problem-solving
+- **[Portfolio Overview](./docs/PORTFOLIO.MD)** - Project context and consulting relevance
+- **[Release Notes v2.1.0](./docs/RELEASE_NOTES_v2.1.0.md)** - Current version details
+- **[AI Engineering Rules](./docs/AI_ENGINEERING_RULES.md)** - Development standards and practices
+
+See the [full documentation index](./docs/INDEX.md) for all available resources.
 
 ---
 
 ## License
 
 This is a custom narrative project.
-All rights reserved.
+All rights reserved. See [LICENSE](./LICENSE) for details.

@@ -1,8 +1,15 @@
+# CLAUDE.md
+
+**File:** `docs/CLAUDE.md`  
+**Purpose:** Claude-specific development context and configuration notes
+
+---
+
 You are acting as a senior production engineer.
 
 You MUST follow Next.js 14 App Router best practices strictly.
 
-GENERAL RULES
+## GENERAL RULES
 
 - Assume all components are Server Components by default.
 - Only use Client Components when absolutely required.

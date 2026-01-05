@@ -1,4 +1,11 @@
-# Required Assets
+# ASSETS_NEEDED.md
+
+**File:** `docs/ASSETS_NEEDED.md`  
+**Purpose:** Specification of required assets and file formats for deployment
+
+---
+
+## Required Assets
 
 Before deploying, you need to create and add these assets to the `public/` directory.
 
@@ -11,11 +18,13 @@ Before deploying, you need to create and add these assets to the `public/` direc
 **Format:** JPG or PNG
 
 **Purpose:**
+
 - Social media previews (Slack, Twitter, WhatsApp, iMessage)
 - LinkedIn shares
 - First impression when link is shared
 
 **Design Guidelines:**
+
 - Use hero image or a cropped/edited derivative
 - Dark, restrained aesthetic (match site tone)
 - Minimal or no text overlay
@@ -30,6 +39,7 @@ Crop `main-header-desktop.jpg` to 1200×630, apply subtle vignette, optionally a
 ## 2. Favicon (Medium Priority)
 
 **Files needed:**
+
 ```
 public/
   ├── favicon.ico       (32×32, for legacy browsers)
@@ -38,18 +48,21 @@ public/
 ```
 
 **Purpose:**
+
 - Browser tabs
 - Bookmarks
 - Mobile home screen icons
 - Professional polish
 
 **Design Guidelines:**
+
 - Simple, monochrome or dark theme
 - Readable at 16×16 pixels
 - Consider abstract symbol related to marble/stone
 - No complex imagery (won't be visible)
 
 **Quick Option:**
+
 - Single letter "M" in serif (Fraunces font)
 - Dark background, light letter
 - Export as SVG for sharpness
@@ -59,11 +72,13 @@ public/
 ## 3. Canonical URL (Already Added)
 
 Current setting:
+
 ```typescript
-canonical: "https://marble-does-not-yield.vercel.app"
+canonical: "https://marble-does-not-yield.vercel.app";
 ```
 
 **After deployment:**
+
 1. Note your actual Vercel URL
 2. If using custom domain, update to that
 3. Update `app/layout.tsx` line 42
@@ -105,6 +120,7 @@ This is optional—Vercel has decent defaults.
 ## Quick Asset Checklist
 
 Before deploying:
+
 - [ ] Create `og-image.jpg` (1200×630)
 - [ ] Create `favicon.ico` (32×32)
 - [ ] Create `favicon.svg` (scalable)
@@ -112,6 +128,7 @@ Before deploying:
 - [ ] Update canonical URL after first deploy
 
 After first deploy:
+
 - [ ] Test OG preview in Slack
 - [ ] Test OG preview in Twitter Card Validator
 - [ ] Verify favicon appears in browser tab
@@ -122,11 +139,13 @@ After first deploy:
 ## Tools for Asset Creation
 
 **OG Image:**
+
 - Figma (export at 2x resolution)
 - Photoshop (crop + export)
 - [og-playground.vercel.app](https://og-playground.vercel.app) (dynamic generation)
 
 **Favicons:**
+
 - [realfavicongenerator.net](https://realfavicongenerator.net)
 - Figma → Export as PNG/SVG
 - [favicon.io](https://favicon.io)
@@ -134,6 +153,7 @@ After first deploy:
 ---
 
 **Current Status:**
+
 - ✅ Metadata configured (Twitter, OG, canonical, robots)
 - ✅ `lang="en"` attribute set
 - ⚠️ Image assets pending (create before deploy)

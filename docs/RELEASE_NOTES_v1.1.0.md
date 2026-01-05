@@ -1,4 +1,11 @@
-# Release Notes v1.1.0
+# RELEASE_NOTES_v1.1.0.md
+
+**File:** `docs/RELEASE_NOTES_v1.1.0.md`  
+**Purpose:** Release notes for version 1.1.0 - Bilingual Edition
+
+---
+
+## Release Notes v1.1.0
 
 **The Marble Does Not Yield** — Bilingual Edition
 

@@ -1,3 +1,10 @@
+# PORTFOLIO.MD
+
+**File:** `docs/PORTFOLIO.MD`  
+**Purpose:** Portfolio piece explaining project context, technical decisions, and consulting relevance
+
+---
+
 ## The Marble Does Not Yield
 
 _A production-grade example of narrative intelligence, system design, and restraint._
