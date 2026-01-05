@@ -1,137 +1,123 @@
-# AI_ENGINEERING_RULES.md
+# AI Engineering Rules
 
 **File:** `docs/AI_ENGINEERING_RULES.md`  
-**Purpose:** Standing rules and coding standards for AI-assisted development on this project
+**Purpose:** A single, platform-agnostic rulebook for any AI coding assistant contributing to this project.
+
+These rules govern **engineering decisions, architecture, UI behavior, and delivery quality**.
+They are **authoritative**. If a change conflicts with these rules, the change is wrong.
 
 ---
 
-## AI Engineering Rules
+## 0) Operating Mode
 
-**Authoritative Operating Principles**
-
-These rules define **how all engineering, design, and architectural decisions must be made** in this codebase and future projects.
-
-They are not optional.
+- Think like a senior production engineer.
+- Default to clarity, restraint, and predictable systems.
+- Optimize for maintainability and calm execution.
 
 ---
 
-## 1. Think in Systems, Not Files
+## 1) Think in Systems, Not Files
 
-- Never reason about a file in isolation.
-- Always identify:
+Never reason about a file in isolation.
 
-  - runtime context (server vs client)
-  - lifecycle (build-time, request-time, runtime)
-  - ownership of responsibility (data, layout, interaction)
+Always identify:
 
-- If the system cannot be explained in 3–5 sentences, it is not ready to build.
+- runtime context (server / client / edge / worker)
+- lifecycle (build-time / request-time / runtime)
+- ownership of responsibility (data / layout / interaction)
+
+If the system cannot be explained in **3–5 sentences**, stop and clarify.
 
 ---
 
-## 2. Default to the Simplest Viable Architecture
+## 2) Default to the Simplest Viable Architecture
 
-- Prefer boring, proven solutions.
-- Avoid novelty unless it solves a real, documented problem.
+Prefer boring, proven solutions.
+
+- Avoid novelty unless it solves a documented problem.
 - Complexity must earn its place.
+- Avoid speculative extensibility.
 
-**Innovation belongs in experience, not dependencies.**
-
----
-
-## 3. Server / Client Boundaries Are Hard Lines
-
-- Next.js App Router defaults to **Server Components**.
-- Client Components must be **explicitly justified**.
-
-### Server Components MAY:
-
-- Load data
-- Parse content
-- Compose layout
-- Render static UI
-
-### Client Components MAY:
-
-- Handle user interaction
-- Use browser APIs
-- Perform animations
-- Observe scroll/viewport state
-
-Never mix responsibilities.
+Innovation belongs in the **experience**, not dependencies.
 
 ---
 
-## 4. Every Client Component Requires Justification
+## 3) Hard Boundaries and Clean Responsibilities
 
-Every `'use client'` file must include a short explanation:
+Separate concerns aggressively:
 
-```ts
-// Client Component because: uses IntersectionObserver for scroll-based fade
-```
+**Data**
 
-If the justification is weak, refactor.
+- loading, validation, parsing, transformation
 
----
+**UI Structure**
 
-## 5. Avoid Legacy or Hidden Behavior
+- layout composition, typography, spacing, content presentation
 
-- Do not use:
+**Interaction**
 
-  - styled-jsx
-  - legacy Pages Router patterns
-  - CSS-in-JS that hides client-only behavior
+- state, events, observers, animations, browser APIs
 
-- Prefer:
-
-  - Tailwind CSS
-  - native browser APIs
-  - explicit effects and state
-
-If behavior is implicit, it is suspect.
+Do not mix interaction logic into data loading/parsing.
+Do not let UI composition hide runtime behavior.
 
 ---
 
-## 6. Animation Is Communication, Not Decoration
+## 4) Explicit Behavior Only
 
-- Motion must reinforce meaning.
-- No bounce, no spring, no spectacle.
-- Favor:
+Avoid patterns that hide costs, side-effects, or runtime boundaries.
 
-  - slow ease-out
-  - subtle opacity/transform
-  - scroll-based pacing
+- Prefer explicit state and effects only when required.
+- If behavior is implicit, it is suspect.
+
+---
+
+## 5) Every Interactive Feature Must Be Justified
+
+Interaction is not “free.”
+
+- If a feature adds motion, state, or complexity, justify it.
+- If the justification is weak, remove it or refactor it.
+
+---
+
+## 6) Animation Is Communication
+
+Motion must reinforce meaning, pacing, and comprehension.
 
 Rules:
 
+- No spectacle by default (no bounce/spring unless explicitly required)
+- Favor subtle opacity/transform and slow ease-out
 - One major animated moment per page (at most)
-- Everything else remains quiet
-- Respect `prefers-reduced-motion` without exception
+- Always respect `prefers-reduced-motion`
+- Never introduce layout shift or unstable layout behavior
 
 ---
 
-## 7. Typography Is a Core System
+## 7) Typography Is a Core System
 
-- Typography is not styling — it is structure.
-- Control:
+Typography is structure, not decoration.
 
-  - reading width
-  - line height
-  - paragraph rhythm
-  - silence (white space)
+Protect:
 
-- Long-form text must never feel crowded or restless.
+- reading width
+- line height and rhythm
+- paragraph spacing and pacing
+- whitespace as “silence”
 
-Whitespace is pacing.
+Long-form content must feel calm and readable.
 
 ---
 
-## 8. Build for Failure States
+## 8) Build for Failure States
 
 Assume:
 
 - missing content
 - slow networks
 - unexpected screen sizes
+- partial data
 
 The system must:
 
@@ -143,71 +129,78 @@ Failure should be quiet and dignified.
 
 ---
 
-## 9. Compilation Is Non-Negotiable
+## 9) Compilation and Verifiable Correctness
 
-Before considering work complete:
+Work is not complete until:
 
-- The project must build cleanly
-- No warnings ignored
-- No deprecated APIs
-- No “probably works” assumptions
+- the project builds cleanly
+- warnings are not ignored
+- deprecated APIs are removed
+- correctness is verified (not assumed)
 
-Only verifiable correctness counts.
+No “probably works” finishes.
 
 ---
 
-## 10. Write Code for the Next Reader
+## 10) Write Code for the Next Reader
 
-- Favor clarity over cleverness.
+Favor clarity over cleverness.
+
 - Name things honestly.
-- Comment **why**, not **what**.
+- Comment **why**, not what.
 - Reduce cognitive load wherever possible.
 
 Good code is calm code.
 
 ---
 
-## 11. Avoid Over-Engineering Small Projects
+## 11) Avoid Over-Engineering Small Projects
 
-- Small scope demands **perfect execution**, not abstraction.
+Small scope demands clean execution, not abstraction.
+
 - No premature generalization.
 - No speculative extensibility.
-
-Finish small things cleanly.
-
----
-
-## 12. Clarify Before Guessing
-
-- If requirements are ambiguous, ask.
-- Never invent constraints or preferences.
-- Senior engineers clarify first, then build.
+- Finish small things cleanly.
 
 ---
 
-## 13. Respect the User’s Attention
+## 12) Ambiguity Protocol (Clarify Before Guessing)
+
+If anything is ambiguous:
+
+- do not invent constraints
+- do not assume preferences
+- state what is unclear
+- ask the minimum questions needed to proceed
+- if you must proceed, use the safest defaults and document assumptions
+
+Senior engineers clarify, then build.
+
+---
+
+## 13) Respect the User’s Attention
 
 Every decision must answer:
 
-> “Does this respect the reader’s time, focus, and emotional state?”
+> “Does this respect the user’s time, focus, and emotional state?”
 
 If not, remove it.
 
 ---
 
-## 14. Think Like a Product, Not a Demo
+## 14) Think Like a Product, Not a Demo
 
-Even internal or portfolio projects represent:
+Even internal work represents:
 
 - judgment
 - taste
 - restraint
 
-Assume they will be evaluated accordingly.
+Assume it will be evaluated accordingly.
 
 ---
 
-## 15. Final Rule
+## Final Rule
 
 > **Restraint is a feature.**
 
@@ -219,40 +212,51 @@ When in doubt:
 
 ---
 
----
+# Execution Profiles
 
-# 2️⃣ PORTFOLIO_POSTMORTEM_INSTRUCTIONS.md
-
-_(How to Write Portfolio-Quality Case Studies)_
-
-This is how you turn _any_ finished project — especially small ones — into a **credible portfolio asset**.
+Profiles apply **only when the project uses that platform**.
+They are extensions of the rules above, not replacements.
 
 ---
 
-## Portfolio Postmortem Framework
+## Profile: Next.js App Router (Server/Client Discipline)
 
-**Narrative + Engineering Case Study**
+### Default Mode
 
----
+- Assume Server-first.
+- Introduce Client behavior only when required.
 
-## Purpose
+### Responsibilities
 
-This document exists to:
+**Server**
 
-- demonstrate judgment
-- explain decisions
-- show restraint
-- communicate how you think
+- load data/content
+- parse/transform content
+- compose layout and render static UI
 
-It is not marketing copy.
-It is not a changelog.
-It is not a tutorial.
+**Client**
 
----
+- user interaction
+- browser APIs (`window`, `document`, `IntersectionObserver`, etc.)
+- animations and viewport observation
 
-## How to Use These Together
+### Client-Only Justification Header
 
-- **AI_ENGINEERING_RULES.md** → governs how work is produced
-- **PORTFOLIO_POSTMORTEM_INSTRUCTIONS.md** → governs how work is explained
+Every client-only file must include a short justification at the top:
 
----
+```ts
+// Client Component because: uses IntersectionObserver for scroll-triggered fades
+```
+
+If the justification is weak, refactor.
+
+### Boundary Integrity
+
+- Keep parsing/loading in server utilities or server components.
+- Keep effects/observers in isolated client components.
+- Do not allow accidental mixing of server and client responsibilities.
+
+### Styling
+
+- Prefer Tailwind CSS and explicit global styles.
+- Avoid styling approaches that hide client-only behavior or runtime costs.

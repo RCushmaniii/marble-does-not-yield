@@ -1,4 +1,4 @@
-# LESSONS_LEARNED.md
+# LESSONS LEARNED
 
 **File:** `docs/LESSONS_LEARNED.md`  
 **Purpose:** Strategic decisions, bugs encountered, and solutions implemented throughout the project lifecycle
@@ -73,7 +73,99 @@ redirect(`/${locale}`);
 
 ---
 
-### 2. Naive Accept-Language Parsing
+### 2. Documentation Viewer Markdown Rendering Failure
+
+**Problem:**
+
+- Created documentation viewer at `/docs` route
+- Markdown files displayed as plain text without formatting
+- No bullet points, no list indentation, no proper styling
+- Multiple troubleshooting attempts with custom CSS failed
+- Took extended debugging session to identify root cause
+
+**Root Cause:**
+
+**Primary:** Missing `@tailwindcss/typography` plugin
+
+- Used Tailwind `prose` classes (`prose-ul:list-disc`, etc.) without the plugin that makes them work
+- Prose classes are inert without the typography plugin installed
+- Like using a library without importing it
+
+**Secondary:** Wrong tool selection
+
+- Initially chose `remark` + `remark-html` (server-side HTML generation)
+- Should have used `react-markdown` (React component rendering) from the start
+- Server-side HTML requires manual CSS styling; React components work with Tailwind automatically
+
+**Tertiary:** Troubleshooting in wrong direction
+
+- Added more CSS classes instead of checking dependencies
+- Tried tweaking markdown processing pipeline
+- Never questioned whether the foundation (typography plugin) was present
+
+**Fix:**
+
+```bash
+# Install required packages
+npm install react-markdown @tailwindcss/typography
+
+# Add plugin to tailwind.config.ts
+plugins: [
+  require('@tailwindcss/typography'),
+],
+
+# Use react-markdown in component
+<ReactMarkdown remarkPlugins={[remarkGfm]}>
+  {content}
+</ReactMarkdown>
+```
+
+**Lesson:**
+
+**For AI assistants implementing markdown rendering:**
+
+1. **Always use the standard stack first:**
+
+   - `react-markdown` for React/Next.js projects
+   - `remark-gfm` for GitHub Flavored Markdown features
+   - `@tailwindcss/typography` plugin for Tailwind styling
+   - This is the proven, documented solution
+
+2. **Check dependencies before troubleshooting styling:**
+
+   - If Tailwind prose classes don't work, verify typography plugin is installed
+   - Don't add more CSS classes to fix missing dependencies
+   - Foundation must be correct before decoration
+
+3. **Avoid custom solutions for solved problems:**
+
+   - Markdown rendering in React is a solved problem
+   - Don't build custom HTML generation when standard tools exist
+   - "Not invented here" syndrome wastes time
+
+4. **Verify the full stack:**
+   ```
+   ✓ Package installed (npm install)
+   ✓ Plugin configured (tailwind.config)
+   ✓ Component imported (import statement)
+   ✓ Component used correctly (JSX)
+   ```
+
+**Prevention Strategy:**
+
+When implementing any new feature:
+
+1. Research the standard solution first (don't reinvent)
+2. Install ALL required dependencies (packages + plugins)
+3. Verify configuration files are updated (tailwind.config, etc.)
+4. Test with minimal example before adding complexity
+5. If styling doesn't work, check dependencies before adding more CSS
+
+**Time Cost:** ~45 minutes of troubleshooting that could have been 5 minutes with correct initial approach.
+
+---
+
+### 3. Naive Accept-Language Parsing
 
 **Problem:**
 

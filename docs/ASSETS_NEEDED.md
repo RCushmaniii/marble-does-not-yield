@@ -1,4 +1,4 @@
-# ASSETS_NEEDED.md
+# ASSETS NEEDED
 
 **File:** `docs/ASSETS_NEEDED.md`  
 **Purpose:** Specification of required assets and file formats for deployment

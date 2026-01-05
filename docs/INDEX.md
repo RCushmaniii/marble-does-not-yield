@@ -1,7 +1,7 @@
-# Documentation Index
+# Index
 
-**The Marble Does Not Yield**  
-**Project Documentation Hub**
+**File:** `docs/INDEX.md`  
+**Purpose:** Project documentation index and quick start guide
 
 ---
 
@@ -19,7 +19,8 @@
 ### Development Process
 
 - **[LESSONS_LEARNED.md](LESSONS_LEARNED.md)** - Strategic decisions, bugs encountered, and how we fixed them
-- **[AI_ENGINEERING_RULES.md](AI_ENGINEERING_RULES.md)** - AI collaboration guidelines and engineering principles
+- **[AI_ENGINEERING_RULES.md](AI_ENGINEERING_RULES.md)** - Platform-agnostic AI collaboration guidelines and engineering principles
+- **[AI_STARTUP.md](AI_STARTUP.md)** - Quick AI assistant onboarding and communication protocols
 - **[SKILL-WORKING-WITH-HUMANS.md](SKILL-WORKING-WITH-HUMANS.md)** - Human-AI collaboration patterns and best practices
 
 ### Release History
@@ -32,9 +33,9 @@
 - **[PRE_DEPLOYMENT_CHECKLIST.md](PRE_DEPLOYMENT_CHECKLIST.md)** - Pre-deployment verification checklist
 - **[ASSETS_NEEDED.md](ASSETS_NEEDED.md)** - Required assets and file specifications
 
-### Development Notes
+### Templates & References
 
-- **[CLAUDE.md](CLAUDE.md)** - Claude-specific development notes and context
+- **[PORTFOLIO_TEMPLATE.md](PORTFOLIO_TEMPLATE.md)** - Formal portfolio entry template with examples and guidelines
 
 ---
 

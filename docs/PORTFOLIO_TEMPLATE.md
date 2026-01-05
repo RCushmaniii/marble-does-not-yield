@@ -1,15 +1,27 @@
-# PORTFOLIO
+# PORTFOLIO TEMPLATE
 
-**File:** `docs/PORTFOLIO.MD`  
-**Purpose:** Portfolio piece explaining project context, technical decisions, and consulting relevance
+**File:** `docs/PORTFOLIO_TEMPLATE.MD`
+**Purpose:** Formal template showing all required fields for a CushLabs portfolio entry
 
-### Contract:
+**Instructions:** Copy this entire file, rename to `PORTFOLIO.MD` in your project's `/docs` folder, and replace the example values with your project's actual data.
 
-### - The parser reads ONLY the YAML block between BEGIN/END.
+---
 
-### - ALL keys in the YAML block are REQUIRED (no omissions).
+# =============================================================================
 
-### - Keep copy concise. This file is for client acquisition.
+# PORTFOLIO_TEMPLATE.md — CushLabs Portfolio Entry (v2 STRICT)
+
+# =============================================================================
+
+# Contract:
+
+# - The parser reads ONLY the YAML block between BEGIN/END.
+
+# - ALL keys in the YAML block are REQUIRED (no omissions).
+
+# - Keep copy concise. This file is for client acquisition.
+
+# =============================================================================
 
 --- # PORTFOLIO_YAML_BEGIN
 
@@ -147,3 +159,79 @@ Key lessons learned documented in `/docs/LESSONS_LEARNED.md` including:
 - Platform-agnostic AI engineering rules in `/docs/AI_ENGINEERING_RULES.md`
 - Comprehensive pre-deployment checklist in `/docs/PRE_DEPLOYMENT_CHECKLIST.md`
 - Design system documentation with typography and spacing guidelines
+
+---
+
+## Field Definitions & Guidelines
+
+### Visibility & Order
+
+- **portfolio_enabled:** `true` to show in portfolio, `false` to hide
+- **portfolio_priority:** 1-10 (1 = highest priority, shows first)
+- **portfolio_featured:** `true` for featured projects, `false` for regular
+- **portfolio_last_reviewed:** YYYY-MM-DD format, update when content changes
+
+### Identity
+
+- **title:** Project name (max 80 characters)
+- **tagline:** One-sentence value proposition (max 140 characters)
+- **slug:** URL-safe identifier (lowercase, hyphens only, unique across portfolio)
+
+### Classification
+
+- **category:** Primary category (AI Automation | Tools | Templates | Client Work)
+- **target_audience:** Who this is for, in plain language (max 120 characters)
+- **tags:** 3-10 tags (recommend 5-7), lowercase with hyphens
+
+### Visuals
+
+- **thumbnail_url:** 16:9 aspect ratio, clean UI screenshot, external URL
+- **hero_image_urls:** 3-6 external URLs showing key features/screens
+- **demo_video_url:** YouTube/Vimeo URL or empty string
+
+### Links
+
+- **demo_url:** Live production URL (required)
+- **repo_url:** GitHub/GitLab URL or empty string
+- **case_study_url:** Blog post/case study URL or empty string
+
+### Sales Content
+
+- **what_it_is:** 2-4 sentences for non-technical business buyers
+- **why_it_matters:** 3-6 bullets, measurable outcomes preferred
+- **how_it_works:** 3-7 bullets, user flow oriented
+
+### Features & Proof
+
+- **primary_features:** 3-6 bullets, key capabilities
+- **proof:** 0-3 bullets (use [] if none), deployment/usage/metrics
+
+### Tech
+
+- **tech_stack:** 5-12 items, most important first
+- **integrations:** External APIs/services or [] if none
+
+---
+
+## Writing Guidelines
+
+**Business-focused copy:**
+
+- Write for decision-makers, not developers
+- Emphasize outcomes over implementation
+- Use measurable results when possible
+- Avoid jargon and technical details in sales sections
+
+**Concise & scannable:**
+
+- Keep bullets under 100 characters
+- Use active voice
+- Lead with value, not features
+- Make every word count
+
+**Professional tone:**
+
+- Confident without bravado
+- Specific without being verbose
+- Demonstrates judgment through restraint
+- Assumes intelligent reader

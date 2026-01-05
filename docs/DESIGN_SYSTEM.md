@@ -1,4 +1,4 @@
-# DESIGN_SYSTEM.md
+# DESIGN SYSTEM
 
 **File:** `docs/DESIGN_SYSTEM.md`  
 **Purpose:** Typography, color palette, spacing, and design principles for the project

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const DOCS_NAV = [
   { title: "Documentation Index", slug: "INDEX" },
@@ -65,15 +67,15 @@ export default function DocViewer({ slug, content }: DocViewerProps) {
             >
               ← Back to Site
             </Link>
-            <h2 className="text-lg font-display font-semibold mb-4 text-parchment">
+            <h2 className="text-lg font-semibold mb-4 text-parchment" style={{ fontFamily: 'Verdana, sans-serif' }}>
               Documentation
             </h2>
-            <nav className="space-y-1">
+            <nav className="space-y-1" style={{ fontFamily: 'Verdana, sans-serif' }}>
               {DOCS_NAV.map((doc) => (
                 <Link
                   key={doc.slug}
                   href={`/docs/${doc.slug}`}
-                  className={`block px-3 py-2 rounded text-sm transition-colors ${
+                  className={`block px-3 py-2 rounded text-base transition-colors ${
                     doc.slug === slug
                       ? "bg-parchment/10 text-parchment font-medium"
                       : "text-parchment/60 hover:text-parchment hover:bg-parchment/5"
@@ -117,15 +119,16 @@ export default function DocViewer({ slug, content }: DocViewerProps) {
         <main className="w-full docs:ml-64 flex-1 px-4 md:px-8 lg:px-12 py-6 md:py-8 lg:py-12 pt-20 docs:pt-8">
           <div className="max-w-4xl mx-auto overflow-hidden">
             <div className="mb-6 md:mb-8 hidden docs:block">
-              <h1 className="text-xl md:text-2xl docs:text-3xl font-display font-bold text-parchment mb-2">
+              <h1 className="text-xl md:text-2xl docs:text-3xl font-bold text-parchment mb-2" style={{ fontFamily: 'Verdana, sans-serif' }}>
                 {currentDoc?.title}
               </h1>
               <div className="h-px bg-parchment/20 w-full" />
             </div>
             
-            <article
-              className="prose prose-invert prose-parchment max-w-none break-words overflow-hidden
-                prose-headings:font-display prose-headings:text-parchment prose-headings:leading-tight prose-headings:break-words prose-headings:overflow-wrap-anywhere
+            <article className="prose prose-invert prose-parchment max-w-none break-words overflow-hidden
+                prose-headings:text-parchment prose-headings:leading-tight prose-headings:break-words prose-headings:overflow-wrap-anywhere
+                [&_h1]:font-[Verdana,sans-serif] [&_h2]:font-[Verdana,sans-serif] [&_h3]:font-[Verdana,sans-serif] [&_h4]:font-[Verdana,sans-serif]
+                [&_p]:font-[Georgia,serif] [&_li]:font-[Georgia,serif] [&_blockquote]:font-[Georgia,serif]
                 prose-h1:text-lg prose-h1:md:text-xl prose-h1:lg:text-2xl prose-h1:mb-4 prose-h1:break-all prose-h1:max-w-full
                 prose-h2:text-lg prose-h2:md:text-xl prose-h2:lg:text-2xl prose-h2:mb-3
                 prose-h3:text-base prose-h3:md:text-lg prose-h3:lg:text-xl prose-h3:mb-3
@@ -134,14 +137,18 @@ export default function DocViewer({ slug, content }: DocViewerProps) {
                 prose-a:text-parchment prose-a:underline prose-a:decoration-parchment/30 prose-a:break-words
                 hover:prose-a:decoration-parchment
                 prose-strong:text-parchment prose-strong:font-semibold
+                prose-em:text-parchment/90 prose-em:italic
                 prose-code:text-xs prose-code:md:text-sm prose-code:text-parchment/90 prose-code:bg-black/30 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:break-all
                 prose-pre:text-xs prose-pre:md:text-sm prose-pre:bg-black/50 prose-pre:border prose-pre:border-parchment/10 prose-pre:my-4 prose-pre:md:my-6 prose-pre:overflow-x-auto prose-pre:max-w-full prose-pre:p-3 prose-pre:md:p-4
-                prose-ul:text-sm prose-ul:md:text-base prose-ul:text-parchment/90 prose-ul:leading-relaxed prose-ul:md:leading-loose prose-ul:mb-4 prose-ul:md:mb-6
-                prose-ol:text-sm prose-ol:md:text-base prose-ol:text-parchment/90 prose-ol:leading-relaxed prose-ol:md:leading-loose prose-ol:mb-4 prose-ol:md:mb-6
-                prose-li:text-parchment/90 prose-li:mb-1 prose-li:md:mb-2 prose-li:break-words
-                prose-blockquote:text-sm prose-blockquote:md:text-base prose-blockquote:border-l-parchment/30 prose-blockquote:text-parchment/80 prose-blockquote:my-4 prose-blockquote:md:my-6"
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
+                prose-ul:list-disc prose-ul:list-outside prose-ul:ml-6 prose-ul:text-sm prose-ul:md:text-base prose-ul:text-parchment/90 prose-ul:leading-relaxed prose-ul:md:leading-loose prose-ul:mb-4 prose-ul:md:mb-6
+                prose-ol:list-decimal prose-ol:list-outside prose-ol:ml-6 prose-ol:text-sm prose-ol:md:text-base prose-ol:text-parchment/90 prose-ol:leading-relaxed prose-ol:md:leading-loose prose-ol:mb-4 prose-ol:md:mb-6
+                prose-li:text-parchment/90 prose-li:mb-1 prose-li:md:mb-2 prose-li:break-words prose-li:pl-2
+                prose-blockquote:text-sm prose-blockquote:md:text-base prose-blockquote:border-l-2 prose-blockquote:border-l-parchment/30 prose-blockquote:text-parchment/80 prose-blockquote:pl-4 prose-blockquote:my-4 prose-blockquote:md:my-6 prose-blockquote:italic
+                prose-hr:border-parchment/20 prose-hr:my-8">
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {content}
+              </ReactMarkdown>
+            </article>
           </div>
         </main>
       </div>

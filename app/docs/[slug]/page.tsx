@@ -1,8 +1,6 @@
 import { notFound } from "next/navigation";
 import { promises as fs } from "fs";
 import path from "path";
-import { remark } from "remark";
-import html from "remark-html";
 import DocViewer from "./DocViewer";
 
 const DOCS_DIR = path.join(process.cwd(), "docs");
@@ -26,6 +24,13 @@ async function getDocContent(slug: string) {
     const filePath = path.join(DOCS_DIR, `${slug}.md`);
     let fileContent = await fs.readFile(filePath, "utf8");
     
+    // Remove the first H1 (filename) and file/purpose metadata block
+    // This removes: # TITLE, **File:** ..., **Purpose:** ..., and the --- separator
+    fileContent = fileContent.replace(
+      /^#[^\n]+\n\s*\*\*File:\*\*[^\n]+\n\s*\*\*Purpose:\*\*[^\n]+\n\s*---\s*\n/m,
+      ""
+    );
+    
     // Fix relative markdown links to point to /docs/ routes
     // Convert [text](FILENAME.md) to [text](/docs/FILENAME)
     fileContent = fileContent.replace(
@@ -39,11 +44,7 @@ async function getDocContent(slug: string) {
       "[$1](/docs/$2)"
     );
     
-    const processedContent = await remark()
-      .use(html, { sanitize: false })
-      .process(fileContent);
-    
-    return processedContent.toString();
+    return fileContent;
   } catch (error) {
     return null;
   }
