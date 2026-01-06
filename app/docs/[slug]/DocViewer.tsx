@@ -9,14 +9,13 @@ const DOCS_NAV = [
   { title: "Documentation Index", slug: "INDEX" },
   { title: "Design System", slug: "DESIGN_SYSTEM" },
   { title: "Lessons Learned", slug: "LESSONS_LEARNED" },
-  { title: "Portfolio Overview", slug: "PORTFOLIO" },
+  { title: "Portfolio Overview", slug: "PORTFOLIO.MD" },
   { title: "Release Notes v2.1.0", slug: "RELEASE_NOTES_v2.1.0" },
   { title: "Release Notes v1.1.0", slug: "RELEASE_NOTES_v1.1.0" },
   { title: "AI Engineering Rules", slug: "AI_ENGINEERING_RULES" },
   { title: "Pre-Deployment Checklist", slug: "PRE_DEPLOYMENT_CHECKLIST" },
   { title: "Assets Needed", slug: "ASSETS_NEEDED" },
   { title: "Working with Humans", slug: "SKILL-WORKING-WITH-HUMANS" },
-  { title: "Claude Notes", slug: "CLAUDE" },
 ];
 
 interface DocViewerProps {
