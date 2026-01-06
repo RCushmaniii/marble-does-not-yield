@@ -1,3 +1,7 @@
+---
+trigger: always_on
+---
+
 # PROJECT RULES
 
 ## 1. Stack & Context
