@@ -8,7 +8,7 @@ portfolio_featured: true
 title: "Marble Does Not Yield"
 tagline: "A cinematic, single-page storytelling experience built with Next.js 14—combining markdown-driven prose, bilingual content, scroll-triggered imagery, and accessibility-first design."
 slug: "marble-does-not-yield"
-category: "AI Automation"
+category: "Creative"
 tech_stack:
   - "TypeScript"
   - "Next.js"
