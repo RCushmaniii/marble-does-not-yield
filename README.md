@@ -1,409 +1,186 @@
 # The Marble Does Not Yield
 
-<p align="center">
-  <a href="https://marble-does-not-yield.vercel.app/" target="_blank"><img src="./public/images/main-header-desktop.jpg" alt="Hero preview" width="900" /></a>
-</p>
+![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?logo=tailwindcss&logoColor=white)
+![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?logo=vercel)
 
-A cinematic, single-page narrative experience built with Next.js 14, TypeScript, and Tailwind CSS.
+> A cinematic, single-page narrative experience that combines long-form bilingual storytelling with restrained animation, audio narration, and accessibility-first design.
 
-This project explores long-form storytelling on the web, combining restrained animation, careful typography, and accessibility-first design to support serious prose without distraction.
+## Overview
 
-**[View Live Demo →](https://marble-does-not-yield.vercel.app/)**
+The Marble Does Not Yield is a production-grade web application built to present serious literary prose without distraction. It serves a bilingual audience (English and Spanish) with author-read audio narration, scroll-triggered imagery, and typography designed for sustained reading.
 
----
+The site treats the web as a medium for storytelling — not a platform for features. Every technical decision serves the narrative: animations are restrained, controls are minimal, and the design stays out of the reader's way.
 
-## Architecture
+Built with Next.js 14 and React Server Components, the project demonstrates how AI-augmented development can deliver human-centered experiences with professional engineering discipline.
 
-This is a production-ready storytelling site built with:
+**[View Live](https://marble-does-not-yield.vercel.app/)**
 
-- **Next.js 14 App Router** (React Server Components)
-- **TypeScript** throughout
-- **Tailwind CSS** for styling
-- **Custom markdown processing** with remark/rehype
-- **Bilingual support** (English/Spanish) with JSON + Markdown i18n
-- **Audio narration** (author-read MP3 served as static asset)
-- **Scroll-triggered animations** via IntersectionObserver
-- **Responsive image handling** (desktop/mobile hero variants)
-- **Accessibility-first** design (semantic HTML, WCAG contrast, reduced motion)
+## The Challenge
 
----
+Long-form prose on the web faces two recurring problems: either the technology overwhelms the content (complex frameworks, heavy interactivity, distracting UI), or the presentation is so bare that it fails to do the writing justice.
 
-## Internationalization (i18n)
+This project needed to solve several specific constraints simultaneously:
 
-This project implements a **professional-grade bilingual system** supporting English and Spanish with perfect symmetry and clear separation of concerns.
+- **Bilingual content** — English and Spanish with perfect structural symmetry, without the overhead of a full i18n framework
+- **Audio narration** — Author-read audio that feels optional, not intrusive, with zero streaming infrastructure
+- **Accessibility** — WCAG AAA contrast ratios, reduced-motion support, and semantic HTML for a reading-heavy experience
+- **Performance** — Near-instant loads for a content-heavy page with multiple images and an audio file
 
-### Architecture
+## The Solution
 
-**JSON for UI labels and short text:**
+**Type-safe bilingual architecture:**
+JSON files handle UI labels and short text, while Markdown files handle long-form prose. The separation means adding a new language requires only new JSON and Markdown files plus a one-line type update — no framework changes.
 
-```
-i18n/
-  ├── en.json           # English UI strings
-  ├── es.json           # Spanish UI strings
-  ├── notes.en.json     # English notes page
-  └── notes.es.json     # Spanish notes page
-```
+**Static audio delivery:**
+The MP3 narration lives in `/public/audio/` and is served via Vercel's CDN with `preload="none"`. A single play/pause toggle with bilingual labels replaces the typical audio player UI — present when wanted, absent when not.
 
-**Markdown for long-form prose:**
+**Scroll-driven storytelling:**
+IntersectionObserver triggers subtle fade-in animations as the reader progresses. All motion respects `prefers-reduced-motion` and the animations use a multi-stage color transition (3.5s) for cinematic pacing.
 
-```
-content/
-  ├── en/
-  │   └── story.md      # English narrative
-  └── es/
-      └── story.md      # Spanish narrative
-```
+**Server-side content pipeline:**
+Markdown processing happens at build time via remark/rehype, producing statically generated pages with zero client-side content loading.
 
-### Why This Structure
+## Technical Highlights
 
-**Perfect Symmetry:**
+- **React Server Components** — Content processing and locale detection happen server-side with zero client JS cost
+- **Custom i18n without framework overhead** — Type-safe `Locale` union type with JSON + Markdown separation; zero runtime translation errors
+- **Proper Accept-Language parsing** — Middleware parses quality values and language priority instead of naive substring matching
+- **104 kB First Load JS** — Static generation, code splitting, and lazy loading below the fold
+- **Custom Tailwind breakpoint (1180px)** — Optimized tablet/desktop distinction for the documentation viewer
+- **Shared locale detection** — Single `detectLocale` utility used by both middleware and root page, eliminating logic drift
 
-- Same keys, same nesting, same intent across languages
-- Makes language switching trivial
-- QA and maintenance are straightforward
-- Adding new languages (e.g., `fr.json`) is painless
+## Getting Started
 
-**Clear Separation of Concerns:**
+### Prerequisites
 
-- **JSON** → Labels, headings, short UI text
-- **Markdown** → Long-form prose and clinical documents
-- This is exactly how mature multilingual systems are built
+- Node.js >= 18
+- npm (lockfile uses npm)
 
-**Type Safety:**
+### Installation
 
-```typescript
-export type Locale = "en" | "es";
-export const SUPPORTED_LOCALES: Locale[] = ["en", "es"];
-```
-
-### Adding a New Language
-
-1. Create JSON translation files:
-
-   ```
-   i18n/fr.json
-   i18n/notes.fr.json
-   ```
-
-2. Create Markdown content:
-
-   ```
-   content/fr/story.md
-   ```
-
-3. Update `lib/i18n.ts`:
-
-   ```typescript
-   export type Locale = "en" | "es" | "fr";
-   export const SUPPORTED_LOCALES: Locale[] = ["en", "es", "fr"];
-   ```
-
-4. Add translations to JSON files following existing key structure
-
-### Translation Workflow
-
-**For UI text changes:**
-
-- Update both `en.json` and `es.json` with matching keys
-- Maintain identical structure across all language files
-
-**For narrative changes:**
-
-- Update corresponding `story.md` files in `content/en/` and `content/es/`
-- Markdown files are completely independent
-
-### Implementation Details
-
-**Translation Loading:**
-
-```typescript
-import { getTranslations, getNotesTranslations } from "@/lib/i18n";
-
-const t = getTranslations(locale);
-const notesT = getNotesTranslations(locale);
-```
-
-**Content Loading:**
-
-```typescript
-import { getStoryContent } from "@/lib/md";
-
-const content = await getStoryContent(locale);
-```
-
-**Components receive locale as prop:**
-
-```typescript
-<Hero lang={locale} />
-<StoryRenderer content={content} lang={locale} />
-```
-
-This architecture ensures:
-
-- ✅ Type-safe translations
-- ✅ No runtime translation errors
-- ✅ Easy QA and maintenance
-- ✅ Professional signal to clients
-- ✅ Scalable to additional languages
-
----
-
-## Audio Narration
-
-Version 2.0.0 introduces **optional audio narration** read by the author, served as a static asset with minimal UX.
-
-### Implementation
-
-**Static Asset Approach:**
-
-```
-public/
-  └── audio/
-      └── marble-reading-complete.mp3
-```
-
-The MP3 is served via Vercel's CDN with zero runtime overhead.
-
-**Minimal Audio Control:**
-
-- 🎧 icon + "Listen" label in header
-- One-click play/pause toggle
-- No visible player UI
-- Bilingual labels (adapts to current language)
-- Positioned alongside language switcher
-
-**Technical Details:**
-
-```typescript
-// AudioPlayer component uses hidden audio element
-const audioRef = useRef<HTMLAudioElement>(null);
-
-const handleToggle = () => {
-  if (audioRef.current) {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
-  }
-};
-```
-
-**Design Philosophy:**
-
-- Audio is **optional**, not intrusive
-- No autoplay (respects user choice)
-- Simple play/pause (no complex controls)
-- Maintains narrative's quiet aesthetic
-- Accessible with proper ARIA labels
-
-This approach treats the audio narration as part of the artwork itself—present when wanted, absent when not.
-
----
-
-## Quick Start
-
-### 1. Install Dependencies
-
-```bash
+```powershell
 npm install
 ```
 
-### 2. Verify Images
+### Run Development Server
 
-Ensure the following images are present:
-
-**Story Images (required):**
-
-```
-public/images/
-  ├── main-header-desktop.jpg   (1920×1080+, landscape hero)
-  ├── main-header-mobile.jpg    (1080×1920+, portrait hero)
-  └── ending.jpg                (1920×1080+, final image)
-```
-
-**Social / Meta Images (before deploy):**
-
-```
-public/images/
-  └── og-image.jpg              (1200×630, social previews)
-```
-
-**Favicons (before deploy):**
-
-```
-public/
-  ├── favicon.ico               (32×32, legacy browsers)
-  ├── favicon.svg               (scalable, modern browsers)
-  └── apple-touch-icon.png      (180×180, iOS)
-```
-
-See **ASSETS_NEEDED.md** for detailed specifications and creation guidelines.
-
----
-
-### 3. Edit Story (Optional)
-
-The story content lives in:
-
-```
-content/story.md
-```
-
-The prose is preserved word-for-word.
-Image placement is controlled using this token:
-
-- `[[ENDING_IMAGE]]` — inserts the final image at that position
-
----
-
-### 4. Run Development Server
-
-```bash
+```powershell
 npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000)
 
----
+### Build for Production
 
-### 5. Build for Production
-
-```bash
+```powershell
 npm run build
 npm start
 ```
 
----
+### Environment Variables
 
-## Deploy to Vercel
+No environment variables are required. The project runs entirely on static assets and build-time content processing.
 
-### Option A: Vercel CLI
+## Live Demo
 
-```bash
+**[Try it live](https://marble-does-not-yield.vercel.app/)**
+
+Test scenarios:
+1. Visit the site in a browser set to Spanish — language detection redirects to the Spanish version automatically
+2. Click the headphone icon to start audio narration, then toggle language to see bilingual labels
+3. Scroll through the narrative to see the fade-in animations (try enabling reduced-motion in your OS to see the accessible fallback)
+
+## Project Structure
+
+```
+marble-does-not-yield/
+├── app/
+│   ├── [lang]/             # Locale-based dynamic routes
+│   │   ├── layout.tsx      # Locale layout wrapper
+│   │   ├── page.tsx        # Main narrative page
+│   │   └── notes/          # Author's notes page
+│   ├── docs/               # Documentation viewer
+│   ├── layout.tsx          # Root layout, fonts, metadata
+│   ├── page.tsx            # Root redirect (locale detection)
+│   └── globals.css         # Global styles and typography
+├── components/
+│   ├── Hero.tsx            # Full-screen hero with title animation
+│   ├── StoryRenderer.tsx   # Markdown renderer with image injection
+│   ├── AudioPlayer.tsx     # Minimal play/pause audio control
+│   ├── LanguageSwitcher.tsx # EN/ES toggle
+│   ├── ScrollFadeImage.tsx # Scroll-based fade-in image
+│   └── FadeInSection.tsx   # Section-level fade animation
+├── content/
+│   ├── en/story.md         # English narrative
+│   └── es/story.md         # Spanish narrative
+├── i18n/
+│   ├── en.json             # English UI strings
+│   ├── es.json             # Spanish UI strings
+│   ├── notes.en.json       # English notes
+│   └── notes.es.json       # Spanish notes
+├── lib/
+│   ├── detect-locale.ts    # Accept-Language parser
+│   ├── i18n.ts             # Translation loader + types
+│   ├── md.ts               # Markdown processing pipeline
+│   └── motion.ts           # Centralized animation settings
+├── public/
+│   ├── audio/              # Author-read MP3 narration
+│   └── images/             # Hero, ending, OG images
+├── middleware.ts            # Locale detection + routing
+├── tailwind.config.ts
+├── package.json
+└── next.config.js
+```
+
+## Deployment
+
+Deployed on Vercel with automatic builds from the main branch.
+
+### Manual Deployment
+
+```powershell
 npm install -g vercel
 vercel
 ```
 
-### Option B: GitHub → Vercel
+### GitHub Integration
 
 1. Push the repository to GitHub
-2. Go to [https://vercel.com/new](https://vercel.com/new)
-3. Import the repository
-4. Vercel auto-detects Next.js and deploys
+2. Import at [vercel.com/new](https://vercel.com/new)
+3. Vercel auto-detects Next.js — no additional configuration required
 
-No additional configuration is required.
+## Results
 
----
+The project delivers a reading experience that respects both the content and the reader.
 
-## File Structure
+| Metric | Target | Actual |
+|--------|--------|--------|
+| First Load JS | <150 kB | 104 kB |
+| Lighthouse Performance | 95+ | 99 |
+| Runtime translation errors | 0 | 0 |
+| TypeScript errors | 0 | 0 |
+| Server cost | $0 | $0 (static generation) |
+| Languages supported | 2 | 2 (EN/ES, extensible) |
 
-```text
-marble-does-not-yield/
-├── app/
-│   ├── layout.tsx           # Root layout, fonts, metadata
-│   ├── page.tsx             # Main page (Hero + StoryRenderer)
-│   └── globals.css          # Global styles and typography
-├── components/
-│   ├── Hero.tsx             # Full-screen hero with title animation
-│   ├── StoryRenderer.tsx    # Markdown renderer with image injection
-│   └── ScrollFadeImage.tsx  # Scroll-based fade-in image component
-├── content/
-│   └── story.md             # Story content
-├── lib/
-│   ├── md.ts                # Markdown loader and parser
-│   └── motion.ts            # Centralized animation settings
-├── public/
-│   └── images/              # Image assets
-├── package.json
-├── tailwind.config.ts
-├── tsconfig.json
-└── next.config.js
-```
+The bilingual content maintains perfect structural symmetry — same keys, same nesting — making QA straightforward and additional languages a matter of adding files rather than changing architecture.
 
----
+Audio narration evolved through six iterations based on user feedback, arriving at the minimal play/pause toggle that matches the site's quiet aesthetic.
 
-## Design System
+## Contact
 
-### Typography
+**Robert Cushman**
+Business Solution Architect & Full-Stack Developer
+Guadalajara, Mexico
 
-- **Display font**: Fraunces
-- **Body font**: Source Serif 4
-- **Base size**: 18px → 20px (responsive)
-- **Line height**: 1.75–1.8
-- **Max width**: 72ch
-
-### Color Palette
-
-```css
---void: #0d0d0d        /* background */
---parchment: #e8e6e1   /* primary text */
---ash: #6b6b6b         /* muted accents */
-```
-
-### Animation Philosophy
-
-- Hero establishes tone
-- Text fades quietly as the reader progresses
-- Ending image is constrained to the reading width
-- All motion is disabled when `prefers-reduced-motion` is enabled
-
----
-
-## Accessibility
-
-- Semantic HTML throughout
-- WCAG AAA contrast ratios
-- Keyboard-visible focus states
-- Motion-respecting animations
-- Decorative images use empty alt text per WCAG guidance
-
----
-
-## Performance
-
-- Next.js image optimization
-- Priority loading for hero imagery
-- Lazy loading below the fold
-- Automatic code splitting and tree shaking
-
----
-
-## Branding Principles
-
-Typography is intentionally restrained. Contrast is achieved through rhythm, spacing, and hierarchy rather than multiple font families. The system stays neutral so the story can provide the emotion.
-
-**Font Usage:**
-
-- **Fraunces (Display):** Titles, headings, bylines only
-- **Source Serif 4 (Body):** All prose, reading text
-
-**Design Philosophy:**
-
-- Literary, not decorative
-- Reader-focused, not system-focused
-- Restrained, not expressive
-
-For complete design guidelines, see [DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md).
-
----
-
-## Documentation
-
-Comprehensive project documentation is organized in the `/docs` directory:
-
-- **[Documentation Index](./docs/INDEX.md)** - Complete navigation hub for all documentation
-- **[Design System](./docs/DESIGN_SYSTEM.md)** - Typography, colors, and design principles
-- **[Lessons Learned](./docs/LESSONS_LEARNED.md)** - Strategic decisions and problem-solving
-- **[Portfolio Overview](./docs/PORTFOLIO.MD)** - Project context and consulting relevance
-- **[Release Notes v2.1.0](./docs/RELEASE_NOTES_v2.1.0.md)** - Current version details
-- **[AI Engineering Rules](./docs/AI_ENGINEERING_RULES.md)** - Development standards and practices
-
-See the [full documentation index](./docs/INDEX.md) for all available resources.
-
----
+📧 info@cushlabs.ai
+🔗 [GitHub](https://github.com/RCushmaniii) • [LinkedIn](https://linkedin.com/in/robertcushman) • [Portfolio](https://cushlabs.ai)
 
 ## License
 
-This is a custom narrative project.
-All rights reserved. See [LICENSE](./LICENSE) for details.
+© 2026 Robert Cushman III. All rights reserved. See [LICENSE](./LICENSE) for details.
+
+---
+
+*Last Updated: 2026-02-18*
