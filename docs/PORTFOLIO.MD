@@ -42,22 +42,20 @@ tags: # Exactly 3–10 tags (recommend 5–7)
 
 # === VISUALS ===
 
-thumbnail_url: "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-thumb.jpg"
-hero_image_urls: # Slider images 01–10
-
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-01.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-02.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-03.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-04.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-05.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-06.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-07.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-08.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-09.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-10.png"
-
-demo_video_url: "https://marble-does-not-yield.vercel.app/video/marble-does-not-yield-brief.mp4"
-demo_video_poster_url: "https://marble-does-not-yield.vercel.app/video/marble-does-not-yield-brief-poster.jpg"
+thumbnail: "/images/portfolio/marble-does-not-yield-thumb.jpg"
+hero_images:
+  - "/images/portfolio/marble-does-not-yield-01.png"
+  - "/images/portfolio/marble-does-not-yield-02.png"
+  - "/images/portfolio/marble-does-not-yield-03.png"
+  - "/images/portfolio/marble-does-not-yield-04.png"
+  - "/images/portfolio/marble-does-not-yield-05.png"
+  - "/images/portfolio/marble-does-not-yield-06.png"
+  - "/images/portfolio/marble-does-not-yield-07.png"
+  - "/images/portfolio/marble-does-not-yield-08.png"
+  - "/images/portfolio/marble-does-not-yield-09.png"
+  - "/images/portfolio/marble-does-not-yield-10.png"
+demo_video_url: "/video/marble-does-not-yield-brief.mp4"
+demo_video_poster_url: "/video/marble-does-not-yield-brief-poster.jpg"
 
 # === LINKS ===
 

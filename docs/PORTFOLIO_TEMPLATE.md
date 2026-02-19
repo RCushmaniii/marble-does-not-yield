@@ -54,22 +54,20 @@ tags: # Exactly 3–10 tags (recommend 5–7)
 
 # === VISUALS ===
 
-thumbnail_url: "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-thumb.jpg"
-hero_image_urls: # Slider images 01–10
-
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-01.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-02.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-03.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-04.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-05.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-06.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-07.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-08.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-09.png"
-- "https://marble-does-not-yield.vercel.app/images/portfolio/marble-does-not-yield-10.png"
-
-demo_video_url: "https://marble-does-not-yield.vercel.app/video/marble-does-not-yield-brief.mp4"
-demo_video_poster_url: "https://marble-does-not-yield.vercel.app/video/marble-does-not-yield-brief-poster.jpg"
+thumbnail: "/images/portfolio/marble-does-not-yield-thumb.jpg"
+hero_images:
+  - "/images/portfolio/marble-does-not-yield-01.png"
+  - "/images/portfolio/marble-does-not-yield-02.png"
+  - "/images/portfolio/marble-does-not-yield-03.png"
+  - "/images/portfolio/marble-does-not-yield-04.png"
+  - "/images/portfolio/marble-does-not-yield-05.png"
+  - "/images/portfolio/marble-does-not-yield-06.png"
+  - "/images/portfolio/marble-does-not-yield-07.png"
+  - "/images/portfolio/marble-does-not-yield-08.png"
+  - "/images/portfolio/marble-does-not-yield-09.png"
+  - "/images/portfolio/marble-does-not-yield-10.png"
+demo_video_url: "/video/marble-does-not-yield-brief.mp4"
+demo_video_poster_url: "/video/marble-does-not-yield-brief-poster.jpg"
 
 # === LINKS ===
 
@@ -193,9 +191,10 @@ Key lessons learned documented in `/docs/LESSONS_LEARNED.md` including:
 
 ### Visuals
 
-- **thumbnail_url:** 16:9 aspect ratio, clean UI screenshot, external URL
-- **hero_image_urls:** 3-6 external URLs showing key features/screens
-- **demo_video_url:** YouTube/Vimeo URL or empty string
+- **thumbnail:** Relative path to 16:9 card thumbnail image (e.g., `/images/portfolio/project-thumb.jpg`)
+- **hero_images:** 3-10 relative paths for portfolio slider screenshots (e.g., `/images/portfolio/project-01.png`)
+- **demo_video_url:** Relative path to explainer/brief video (e.g., `/video/project-brief.mp4`)
+- **demo_video_poster_url:** Relative path to video poster image (e.g., `/video/project-brief-poster.jpg`)
 
 ### Links
 
