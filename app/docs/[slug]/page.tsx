@@ -14,6 +14,7 @@ const DOCS_NAV = [
   { title: "Release Notes v1.1.0", slug: "RELEASE_NOTES_v1.1.0" },
   { title: "AI Engineering Rules", slug: "AI_ENGINEERING_RULES" },
   { title: "Pre-Deployment Checklist", slug: "PRE_DEPLOYMENT_CHECKLIST" },
+  { title: "Marketing", slug: "MARKETING" },
   { title: "Assets Needed", slug: "ASSETS_NEEDED" },
   { title: "Working with Humans", slug: "SKILL-WORKING-WITH-HUMANS" },
   { title: "Claude Notes", slug: "CLAUDE" },
