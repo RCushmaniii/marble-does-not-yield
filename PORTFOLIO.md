@@ -59,6 +59,7 @@ slides:
 
 # === MEDIA: VIDEO ===
 video_url: "/video/marble-does-not-yield-brief.mp4"
+video_poster: "/images/portfolio/cushlabs-brief-poster.jpg"
 
 # === LINKS ===
 demo_url: "https://marble-does-not-yield.vercel.app/"
@@ -116,12 +117,14 @@ IntersectionObserver triggers multi-stage color fade animations (3.5s) as the re
 ## Results
 
 **For the End User / Team:**
+
 - Bilingual literary content accessible to both English and Spanish readers with automatic language detection
 - Optional audio narration that respects the reading experience rather than interrupting it
 - WCAG AAA compliance ensures the content is accessible to readers with visual or motion sensitivities
 - Near-instant page loads with static generation and zero server dependencies
 
 **Technical Demonstration:**
+
 - Production-grade bilingual architecture without third-party i18n framework overhead
 - AI-augmented development workflow where Claude and Windsurf collaborate on architecture, debugging, and documentation — not just code generation
 - Six-iteration UX refinement process from complex audio player to minimal toggle, demonstrating taste and restraint
