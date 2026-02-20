@@ -102,14 +102,21 @@ marble-does-not-yield/
 │   │   ├── page.tsx        # Main narrative page
 │   │   └── notes/          # Author's notes page
 │   ├── docs/               # Documentation viewer
+│   │   ├── page.tsx        # Documentation index
+│   │   └── [slug]/         # Dynamic doc routes
+│   │       ├── page.tsx    # Doc page (server component)
+│   │       └── DocViewer.tsx # Client-side doc renderer
+│   ├── sitemap.ts          # Dynamic sitemap generator
 │   ├── layout.tsx          # Root layout, fonts, metadata
 │   ├── page.tsx            # Root redirect (locale detection)
 │   └── globals.css         # Global styles and typography
 ├── components/
 │   ├── Hero.tsx            # Full-screen hero with title animation
+│   ├── HeroImage.tsx       # Responsive hero image (desktop/mobile)
 │   ├── StoryRenderer.tsx   # Markdown renderer with image injection
 │   ├── AudioPlayer.tsx     # Minimal play/pause audio control
 │   ├── LanguageSwitcher.tsx # EN/ES toggle
+│   ├── QuietLink.tsx       # Minimal styled link component
 │   ├── ScrollFadeImage.tsx # Scroll-based fade-in image
 │   └── FadeInSection.tsx   # Section-level fade animation
 ├── content/
@@ -127,7 +134,9 @@ marble-does-not-yield/
 │   └── motion.ts           # Centralized animation settings
 ├── public/
 │   ├── audio/              # Author-read MP3 narration
-│   └── images/             # Hero, ending, OG images
+│   ├── images/             # Hero, ending, OG images
+│   │   └── portfolio/      # Portfolio screenshots
+│   └── video/              # Demo video + poster
 ├── middleware.ts            # Locale detection + routing
 ├── tailwind.config.ts
 ├── package.json
@@ -183,4 +192,4 @@ Guadalajara, Mexico
 
 ---
 
-*Last Updated: 2026-02-18*
+*Last Updated: 2026-02-20*
