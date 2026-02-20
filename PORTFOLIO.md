@@ -1,55 +1,14 @@
 ---
-# =============================================================================
-# PORTFOLIO.md — The Marble Does Not Yield
-# =============================================================================
+# === CONTROL FLAGS ===
 portfolio_enabled: true
 portfolio_priority: 3
 portfolio_featured: true
-portfolio_last_reviewed: "2026-02-18"
 
+# === CARD DISPLAY ===
 title: "The Marble Does Not Yield"
 tagline: "Bilingual narrative web app demonstrating AI-augmented development and human-centered design."
 slug: "marble-does-not-yield"
-
 category: "AI Automation"
-target_audience: "Technical leaders evaluating AI-augmented development capabilities and human-centered design."
-tags:
-  - "next-js"
-  - "typescript"
-  - "ai-assisted-development"
-  - "bilingual"
-  - "accessibility"
-  - "narrative-design"
-  - "audio-narration"
-
-thumbnail: "/images/portfolio/marble-does-not-yield-thumb.jpg"
-hero_images:
-  - "/images/portfolio/marble-does-not-yield-01.png"
-  - "/images/portfolio/marble-does-not-yield-02.png"
-  - "/images/portfolio/marble-does-not-yield-03.png"
-  - "/images/portfolio/marble-does-not-yield-04.png"
-  - "/images/portfolio/marble-does-not-yield-05.png"
-  - "/images/portfolio/marble-does-not-yield-06.png"
-  - "/images/portfolio/marble-does-not-yield-07.png"
-  - "/images/portfolio/marble-does-not-yield-08.png"
-  - "/images/portfolio/marble-does-not-yield-09.png"
-  - "/images/portfolio/marble-does-not-yield-10.png"
-demo_video_url: "/video/marble-does-not-yield-brief.mp4"
-
-live_url: "https://marble-does-not-yield.vercel.app/"
-demo_url: "https://marble-does-not-yield.vercel.app/"
-case_study_url: ""
-
-problem_solved: |
-  Long-form prose on the web is typically either overwhelmed by technology or underserved by bare presentation. This project solves both by delivering a cinematic bilingual reading experience with author-read audio narration, accessibility-first design, and zero framework overhead for internationalization. It demonstrates how AI-augmented development produces human-centered experiences with production-grade engineering discipline.
-
-key_outcomes:
-  - "104 kB First Load JS — static generation with zero server cost"
-  - "Zero runtime translation errors via type-safe bilingual architecture"
-  - "WCAG AAA contrast ratios with full reduced-motion support"
-  - "Bilingual content with perfect structural symmetry (EN/ES)"
-  - "Audio narration served as static asset — zero streaming infrastructure"
-
 tech_stack:
   - "Next.js 14 (App Router)"
   - "TypeScript"
@@ -61,8 +20,59 @@ tech_stack:
   - "rehype-raw"
   - "Vercel (deployment)"
   - "Markdown (content pipeline)"
+thumbnail: "/images/portfolio/marble-does-not-yield-thumb.jpg"
 
-complexity: "Production"
+# === DETAIL PAGE ===
+
+# === MEDIA: PORTFOLIO SLIDES ===
+slides:
+  - src: "/images/portfolio/marble-does-not-yield-01.png"
+    alt_en: "The Marble Does Not Yield slide 1"
+    alt_es: "The Marble Does Not Yield diapositiva 1"
+  - src: "/images/portfolio/marble-does-not-yield-02.png"
+    alt_en: "The Marble Does Not Yield slide 2"
+    alt_es: "The Marble Does Not Yield diapositiva 2"
+  - src: "/images/portfolio/marble-does-not-yield-03.png"
+    alt_en: "The Marble Does Not Yield slide 3"
+    alt_es: "The Marble Does Not Yield diapositiva 3"
+  - src: "/images/portfolio/marble-does-not-yield-04.png"
+    alt_en: "The Marble Does Not Yield slide 4"
+    alt_es: "The Marble Does Not Yield diapositiva 4"
+  - src: "/images/portfolio/marble-does-not-yield-05.png"
+    alt_en: "The Marble Does Not Yield slide 5"
+    alt_es: "The Marble Does Not Yield diapositiva 5"
+  - src: "/images/portfolio/marble-does-not-yield-06.png"
+    alt_en: "The Marble Does Not Yield slide 6"
+    alt_es: "The Marble Does Not Yield diapositiva 6"
+  - src: "/images/portfolio/marble-does-not-yield-07.png"
+    alt_en: "The Marble Does Not Yield slide 7"
+    alt_es: "The Marble Does Not Yield diapositiva 7"
+  - src: "/images/portfolio/marble-does-not-yield-08.png"
+    alt_en: "The Marble Does Not Yield slide 8"
+    alt_es: "The Marble Does Not Yield diapositiva 8"
+  - src: "/images/portfolio/marble-does-not-yield-09.png"
+    alt_en: "The Marble Does Not Yield slide 9"
+    alt_es: "The Marble Does Not Yield diapositiva 9"
+  - src: "/images/portfolio/marble-does-not-yield-10.png"
+    alt_en: "The Marble Does Not Yield slide 10"
+    alt_es: "The Marble Does Not Yield diapositiva 10"
+
+# === MEDIA: VIDEO ===
+video_url: "/video/marble-does-not-yield-brief.mp4"
+
+# === LINKS ===
+demo_url: "https://marble-does-not-yield.vercel.app/"
+live_url: "https://marble-does-not-yield.vercel.app/"
+
+# === OPTIONAL ===
+tags:
+  - "next-js"
+  - "typescript"
+  - "ai-assisted-development"
+  - "bilingual"
+  - "accessibility"
+  - "narrative-design"
+  - "audio-narration"
 ---
 
 ## Overview
