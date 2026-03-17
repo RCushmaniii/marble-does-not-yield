@@ -1,47 +1,26 @@
-# Proprietary License
+Copyright (c) 2024-2026 CushLabs AI Services (Robert Cushman III). All Rights Reserved.
 
-**The Marble Does Not Yield**  
-Copyright © 2026 Robert Cushman III. All rights reserved.
+PROPRIETARY — PORTFOLIO DEMONSTRATION ONLY
 
----
+This software and all associated documentation files (the "Software") are the
+exclusive intellectual property of CushLabs AI Services.
 
-## Grant of Rights
+PERMITTED:
+  - Viewing and reading this code for professional evaluation of the author's work
+  - Referencing this repository in the context of hiring, partnership, or due diligence
+  - Linking to this repository
 
-This work, including but not limited to the narrative text, source code, design elements, audio recordings, and associated documentation (collectively, the "Work"), is the exclusive property of Robert Cushman III (the "Author").
+NOT PERMITTED:
+  - Copying, cloning, forking, or reproducing this code for any purpose other than
+    personal review
+  - Using any portion of this code in your own projects, products, or services,
+    whether commercial or non-commercial
+  - Distributing, sublicensing, or publishing derivative works based on this code
+  - Using this code as a template, boilerplate, or starting point for any project
 
-## Restrictions
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR
+OTHER LIABILITY ARISING FROM THE USE OF THIS SOFTWARE.
 
-No part of this Work may be:
-
-- **Reproduced** in any form or by any means, electronic or mechanical, including photocopying, recording, or by any information storage and retrieval system;
-- **Distributed** publicly or privately, in whole or in part;
-- **Modified**, adapted, or created as derivative works;
-- **Transmitted** in any form or by any means;
-- **Publicly performed** or displayed;
-- **Used for commercial purposes** of any kind;
-
-without the express prior written permission of the Author.
-
-## Permitted Use
-
-This Work is made available for **viewing and personal reading only**. The source code is provided for **portfolio demonstration and educational reference purposes** and does not constitute a grant of license to use, modify, or distribute.
-
-## Ownership
-
-All intellectual property rights, including but not limited to copyright, trademark, and any other proprietary rights in the Work, remain the exclusive property of the Author.
-
-## Disclaimer
-
-THE WORK IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF OR INABILITY TO USE THE WORK.
-
-## Contact
-
-For permissions, licensing inquiries, or other questions regarding this Work, please contact:
-
-**Robert Cushman III**  
-[Contact information available upon request]
-
----
-
-**Effective Date:** January 4, 2026  
-**Jurisdiction:** United States of America
+For licensing inquiries: info@cushlabs.ai
+https://cushlabs.ai
