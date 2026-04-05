@@ -129,7 +129,7 @@ export default async function NotesPage({ params }: NotesPageProps) {
               </ul>
               <p className="font-medium text-parchment">Upon regaining consciousness:</p>
               <ul className="space-y-1 list-disc list-inside">
-                <li>Found lying on the shower floor in a "wishbone" position</li>
+                <li>Found lying on the shower floor in a &ldquo;wishbone&rdquo; position</li>
                 <li>Both knees bent and forced outward, pinned against the sides of the shower space</li>
                 <li>Head positioned under the shower bench</li>
                 <li>Immediate and severe bilateral knee pain</li>
