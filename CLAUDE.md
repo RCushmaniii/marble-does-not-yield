@@ -2,11 +2,11 @@
 
 ## Project Overview
 
-A production-grade bilingual narrative web application built with Next.js 14. Presents long-form literary content in English and Spanish with author-read audio narration, scroll-triggered animations, and accessibility-first design. Deployed to Vercel at marble-does-not-yield.vercel.app. Currently at v2.1.0.
+A production-grade bilingual narrative web application built with Next.js 16. Presents long-form literary content in English and Spanish with author-read audio narration, scroll-triggered animations, and accessibility-first design. Deployed to Vercel at marble-does-not-yield.vercel.app. Currently at v2.2.0.
 
 ## Tech Stack
 
-- Next.js 14 (App Router, React Server Components)
+- Next.js 16 (App Router, React Server Components)
 - TypeScript 5
 - Tailwind CSS 3.4 with @tailwindcss/typography
 - react-markdown + remark-gfm + rehype-raw (content pipeline)

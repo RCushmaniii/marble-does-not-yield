@@ -10,7 +10,7 @@ tagline: "Bilingual literary web app with scroll-driven storytelling and WCAG AA
 slug: "marble-does-not-yield"
 category: "Creative"
 tech_stack:
-  - "Next.js 14"
+  - "Next.js 16"
   - "TypeScript"
   - "React Server Components"
   - "Tailwind CSS"
@@ -86,7 +86,7 @@ tags:
 date_completed: "2025-10"
 
 # === REPO HEALTH STATUS ===
-# Last audited: 2026-04-05
+# Last audited: 2026-04-22
 # Standards defined in: operating-system/delivery/repo-health-baseline.md
 health_status:
   sentry: "-"
@@ -96,7 +96,7 @@ health_status:
   security_headers: "Y"
   rate_limiting: "n/a"
   env_validation: "-"
-  analytics: "DEFERRED"
+  analytics: "Y"
   structured_logging: "-"
   dependabot: "Y"
   secret_scanning: "Y"

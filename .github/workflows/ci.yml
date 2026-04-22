@@ -16,9 +16,10 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      - name: Type Check
+        run: npm run type-check
       - name: Lint
         run: npm run lint
-        continue-on-error: true
       - name: Build
         run: npm run build
         env:
