@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Source_Serif_4 } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -34,7 +35,10 @@ export default function RootLayout({
 }) {
   return (
     <html className={`${fraunces.variable} ${sourceSerif.variable}`}>
-      <body className="overflow-x-hidden">{children}</body>
+      <body className="overflow-x-hidden">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
