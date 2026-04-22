@@ -11,23 +11,19 @@ interface ScrollFadeImageProps {
 
 export default function ScrollFadeImage({ src, alt = "" }: ScrollFadeImageProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const [opacity, setOpacity] = useState(0);
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const prefersReduced =
+    typeof window !== "undefined"
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      : false;
+  const [opacity, setOpacity] = useState(prefersReduced ? 1 : 0);
+  const [reducedMotion, setReducedMotion] = useState(prefersReduced);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(mediaQuery.matches);
-
-    if (mediaQuery.matches) {
-      setOpacity(1);
-      return;
-    }
-
     const handleChange = (e: MediaQueryListEvent) => {
       setReducedMotion(e.matches);
       if (e.matches) setOpacity(1);
     };
-
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);

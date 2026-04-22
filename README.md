@@ -1,6 +1,6 @@
 # The Marble Does Not Yield
 
-![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?logo=tailwindcss&logoColor=white)
 ![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?logo=vercel)
@@ -13,7 +13,7 @@ The Marble Does Not Yield is a production-grade web application built to present
 
 The site treats the web as a medium for storytelling — not a platform for features. Every technical decision serves the narrative: animations are restrained, controls are minimal, and the design stays out of the reader's way.
 
-Built with Next.js 14 and React Server Components, the project demonstrates how AI-augmented development can deliver human-centered experiences with professional engineering discipline.
+Built with Next.js 16 and React Server Components, the project demonstrates how AI-augmented development can deliver human-centered experiences with professional engineering discipline.
 
 **[View Live](https://marble-does-not-yield.vercel.app/)**
 
@@ -192,4 +192,4 @@ Guadalajara, Mexico
 
 ---
 
-*Last Updated: 2026-02-20*
+*Last Updated: 2026-04-22*
