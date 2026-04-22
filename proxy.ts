@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { SUPPORTED_LOCALES } from "./lib/i18n";
 import { detectLocale } from "./lib/detect-locale";
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
   // Allow /docs routes without language redirection
